@@ -1,0 +1,2972 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/SheetJS/j#readme"
+
+    >j (v0.4.5)</a>
+</h1>
+<h4>CLI tool for working with spreadsheet files</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.j">module j</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.read">
+            function <span class="apidocSignatureSpan">j.</span>read
+            <span class="apidocSignatureSpan">(data, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.readFile">
+            function <span class="apidocSignatureSpan">j.</span>readFile
+            <span class="apidocSignatureSpan">(filename, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>XLS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>XLSX</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>XLSX.CFB</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>XLSX.SSF</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>XLSX.utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">j.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.j.XLSX">module j.XLSX</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.parse_fods">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>parse_fods
+            <span class="apidocSignatureSpan">(data, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.parse_ods">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>parse_ods
+            <span class="apidocSignatureSpan">(zip, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.parse_xlscfb">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>parse_xlscfb
+            <span class="apidocSignatureSpan">(cfb, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.parse_zip">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>parse_zip
+            <span class="apidocSignatureSpan">(zip, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.read">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>read
+            <span class="apidocSignatureSpan">(data, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.readFile">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>readFile
+            <span class="apidocSignatureSpan">(filename, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.readFileSync">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>readFileSync
+            <span class="apidocSignatureSpan">(filename, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.write">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>write
+            <span class="apidocSignatureSpan">(wb, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.writeFile">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>writeFile
+            <span class="apidocSignatureSpan">(wb, filename, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.writeFileAsync">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>writeFileAsync
+            <span class="apidocSignatureSpan">(filename, wb, opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.writeFileSync">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>writeFileSync
+            <span class="apidocSignatureSpan">(wb, filename, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.write_ods">
+            function <span class="apidocSignatureSpan">j.XLSX.</span>write_ods
+            <span class="apidocSignatureSpan">(wb, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.XLSX.</span>CFB</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.XLSX.</span>SSF</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.XLSX.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">j.XLSX.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.j.XLSX.CFB">module j.XLSX.CFB</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.CFB.parse">
+            function <span class="apidocSignatureSpan">j.XLSX.CFB.</span>parse
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.CFB.read">
+            function <span class="apidocSignatureSpan">j.XLSX.CFB.</span>read
+            <span class="apidocSignatureSpan">(blob, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.XLSX.CFB.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">j.XLSX.CFB.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.j.XLSX.SSF">module j.XLSX.SSF</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF._eval">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_eval
+            <span class="apidocSignatureSpan">(fmt, v, opts, flen)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF._general">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_general
+            <span class="apidocSignatureSpan">(v, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF._general_int">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_general_int
+            <span class="apidocSignatureSpan">(v, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF._general_num">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_general_num
+            <span class="apidocSignatureSpan">(v, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF._split">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_split
+            <span class="apidocSignatureSpan">(fmt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF.format">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>format
+            <span class="apidocSignatureSpan">(fmt, v, o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF.get_table">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>get_table
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF.is_date">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>is_date
+            <span class="apidocSignatureSpan">(fmt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF.load">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>load
+            <span class="apidocSignatureSpan">(fmt, idx)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF.load_table">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>load_table
+            <span class="apidocSignatureSpan">(tbl)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.SSF.parse_date_code">
+            function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>parse_date_code
+            <span class="apidocSignatureSpan">(v, opts, b2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_table</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.XLSX.SSF.</span>opts</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">j.XLSX.SSF.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.j.XLSX.utils">module j.XLSX.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.aoa_to_sheet">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>aoa_to_sheet
+            <span class="apidocSignatureSpan">(data, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.decode_cell">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>decode_cell
+            <span class="apidocSignatureSpan">(cstr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.decode_col">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>decode_col
+            <span class="apidocSignatureSpan">(colstr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.decode_range">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>decode_range
+            <span class="apidocSignatureSpan">(range)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.decode_row">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>decode_row
+            <span class="apidocSignatureSpan">(rowstr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.encode_cell">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>encode_cell
+            <span class="apidocSignatureSpan">(cell)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.encode_col">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>encode_col
+            <span class="apidocSignatureSpan">(col)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.encode_range">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>encode_range
+            <span class="apidocSignatureSpan">(cs, ce)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.encode_row">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>encode_row
+            <span class="apidocSignatureSpan">(row)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.format_cell">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>format_cell
+            <span class="apidocSignatureSpan">(cell, v, o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.get_formulae">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>get_formulae
+            <span class="apidocSignatureSpan">(sheet)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.make_csv">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>make_csv
+            <span class="apidocSignatureSpan">(sheet, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.make_formulae">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>make_formulae
+            <span class="apidocSignatureSpan">(sheet)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.make_json">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>make_json
+            <span class="apidocSignatureSpan">(sheet, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.sheet_to_csv">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>sheet_to_csv
+            <span class="apidocSignatureSpan">(sheet, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.sheet_to_formulae">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>sheet_to_formulae
+            <span class="apidocSignatureSpan">(sheet)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.sheet_to_json">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>sheet_to_json
+            <span class="apidocSignatureSpan">(sheet, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.sheet_to_row_object_array">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>sheet_to_row_object_array
+            <span class="apidocSignatureSpan">(sheet, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.split_cell">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>split_cell
+            <span class="apidocSignatureSpan">(cstr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.table_to_book">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>table_to_book
+            <span class="apidocSignatureSpan">(table, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.table_to_sheet">
+            function <span class="apidocSignatureSpan">j.XLSX.utils.</span>table_to_sheet
+            <span class="apidocSignatureSpan">(table, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.j.utils">module j.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.get_cols">
+            function <span class="apidocSignatureSpan">j.utils.</span>get_cols
+            <span class="apidocSignatureSpan">(sheet, XL)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_biff2">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_biff2
+            <span class="apidocSignatureSpan">(w, o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_csv">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_csv
+            <span class="apidocSignatureSpan">(w, FS, RS)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_dif">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_dif
+            <span class="apidocSignatureSpan">(w)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_dsv">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_dsv
+            <span class="apidocSignatureSpan">(w, FS, RS)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_fods">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_fods
+            <span class="apidocSignatureSpan">(w, o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_formulae">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_formulae
+            <span class="apidocSignatureSpan">(w)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_html">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_html
+            <span class="apidocSignatureSpan">(w)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_html_cols">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_html_cols
+            <span class="apidocSignatureSpan">(w)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_json">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_json
+            <span class="apidocSignatureSpan">(w, raw)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_md">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_md
+            <span class="apidocSignatureSpan">(w)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_ods">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_ods
+            <span class="apidocSignatureSpan">(w, o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_socialcalc">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_socialcalc
+            <span class="apidocSignatureSpan">(w)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_sylk">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_sylk
+            <span class="apidocSignatureSpan">(w)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_xlsb">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_xlsb
+            <span class="apidocSignatureSpan">(w, o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_xlsm">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_xlsm
+            <span class="apidocSignatureSpan">(w, o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_xlsx">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_xlsx
+            <span class="apidocSignatureSpan">(w, o)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.utils.to_xml">
+            function <span class="apidocSignatureSpan">j.utils.</span>to_xml
+            <span class="apidocSignatureSpan">(w)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.j" id="apidoc.module.j">module j</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.j.read" id="apidoc.element.j.read">
+        function <span class="apidocSignatureSpan">j.</span>read
+        <span class="apidocSignatureSpan">(data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">read = function (data, options) {
+	if(is_xlsx(data)) return [XLSX, XLSX.read(data, options)];
+	else return [HARB, HARB.read(data.toString(), options)];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.readFile" id="apidoc.element.j.readFile">
+        function <span class="apidocSignatureSpan">j.</span>readFile
+        <span class="apidocSignatureSpan">(filename, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFile = function (filename, options) {
+	var f = fs.readFileSync(filename);
+	if(is_xlsx(f)) return [XLSX, XLSX.readFile(filename, options)];
+	else return [HARB, HARB.readFile(filename, options)];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Node Library
+
+```js
+var J = require(&#x27;j&#x27;);
+```
+
+`J.<span class="apidocCodeKeywordSpan">readFile</span>(filename)` opens the file specified by filename and returns an array
+whose first object is the parsing object (XLS or XLSX) and whose second object
+is the parsed file.
+
+`J.utils` has various helpers that expect an array like those from readFile:
+
+| Format                                                   |   util helper     |
+|:---------------------------------------------------------|:------------------|
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.j.XLSX" id="apidoc.module.j.XLSX">module j.XLSX</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.parse_fods" id="apidoc.element.j.XLSX.parse_fods">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>parse_fods
+        <span class="apidocSignatureSpan">(data, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_fods(data, opts) {
+	return parse_content_xml(data, opts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.parse_ods" id="apidoc.element.j.XLSX.parse_ods">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>parse_ods
+        <span class="apidocSignatureSpan">(zip, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_ods(zip, opts) {
+	opts = opts || ({});
+	var ods = !!safegetzipfile(zip, &#x27;objectdata&#x27;);
+	if(ods) var manifest = parse_manifest(getzipdata(zip, &#x27;META-INF/manifest.xml&#x27;), opts);
+	var content = getzipstr(zip, &#x27;content.xml&#x27;);
+	if(!content) throw new Error(&#x22;Missing content.xml in &#x22; + (ods ? &#x22;ODS&#x22; : &#x22;UOF&#x22;)+ &#x22; file&#x22;);
+	return parse_content_xml(ods ? content : utf8read(content), opts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.parse_xlscfb" id="apidoc.element.j.XLSX.parse_xlscfb">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>parse_xlscfb
+        <span class="apidocSignatureSpan">(cfb, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_xlscfb(cfb, options) {
+if(!options) options = {};
+fix_read_opts(options);
+reset_cp();
+var CompObj, Summary, Workbook;
+if(cfb.FullPaths) {
+	CompObj = cfb.find(&#x27;!CompObj&#x27;);
+	Summary = cfb.find(&#x27;!SummaryInformation&#x27;);
+	Workbook = cfb.find(&#x27;/Workbook&#x27;);
+} else {
+	prep_blob(cfb, 0);
+	Workbook = ({content: cfb});
+}
+
+if(!Workbook) Workbook = cfb.find(&#x27;/Book&#x27;);
+var CompObjP, SummaryP, WorkbookP;
+
+if(CompObj) CompObjP = parse_compobj(CompObj);
+if(options.bookProps &#x26;&#x26; !options.bookSheets) WorkbookP = ({});
+else {
+	if(Workbook) WorkbookP = parse_workbook(Workbook.content, options, !!Workbook.find);
+	else throw new Error(&#x22;Cannot find Workbook stream&#x22;);
+}
+
+if(cfb.FullPaths) parse_props(cfb);
+
+var props = {};
+for(var y in cfb.Summary) props[y] = cfb.Summary[y];
+for(y in cfb.DocSummary) props[y] = cfb.DocSummary[y];
+WorkbookP.Props = WorkbookP.Custprops = props;<span class="apidocCodeCommentSpan"> /* TODO: split up properties */
+</span>if(options.bookFiles) WorkbookP.cfb = cfb;
+/*WorkbookP.CompObjP = CompObjP; // TODO: storage? */
+return WorkbookP;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.parse_zip" id="apidoc.element.j.XLSX.parse_zip">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>parse_zip
+        <span class="apidocSignatureSpan">(zip, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_zip(zip, opts) {
+	make_ssf(SSF);
+	opts = opts || {};
+	fix_read_opts(opts);
+	reset_cp();
+
+	<span class="apidocCodeCommentSpan">/* OpenDocument Part 3 Section 2.2.1 OpenDocument Package */
+</span>	if(safegetzipfile(zip, &#x27;META-INF/manifest.xml&#x27;)) return parse_ods(zip, opts);
+	/* UOC */
+	if(safegetzipfile(zip, &#x27;objectdata.xml&#x27;)) return parse_ods(zip, opts);
+
+	var entries = keys(zip.files).filter(nodirs).sort();
+	var dir = parse_ct((getzipstr(zip, &#x27;[Content_Types].xml&#x27;)), opts);
+	var xlsb = false;
+	var sheets, binname;
+	if(dir.workbooks.length === 0) {
+		binname = &#x22;xl/workbook.xml&#x22;;
+		if(getzipdata(zip,binname, true)) dir.workbooks.push(binname);
+	}
+	if(dir.workbooks.length === 0) {
+		binname = &#x22;xl/workbook.bin&#x22;;
+		if(!getzipfile(zip,binname,true)) throw new Error(&#x22;Could not find workbook&#x22;);
+		dir.workbooks.push(binname);
+		xlsb = true;
+	}
+	if(dir.workbooks[0].slice(-3) == &#x22;bin&#x22;) xlsb = true;
+	if(xlsb) set_cp(1200);
+
+	var themes = ({});
+	var styles = ({});
+	if(!opts.bookSheets &#x26;&#x26; !opts.bookProps) {
+		strs = [];
+		if(dir.sst) strs=parse_sst(getzipdata(zip, dir.sst.replace(/^\//,&#x27;&#x27;)), dir.sst, opts);
+
+		if(opts.cellStyles &#x26;&#x26; dir.themes.length) themes = parse_theme(getzipstr(zip, dir.themes[0].replace(/^\//,&#x27;&#x27;), true)||&#x22;&#x22;,dir.themes
+[0], opts);
+
+		if(dir.style) styles = parse_sty(getzipdata(zip, dir.style.replace(/^\//,&#x27;&#x27;)),dir.style, themes, opts);
+	}
+
+	var wb = parse_wb(getzipdata(zip, dir.workbooks[0].replace(/^\//,&#x27;&#x27;)), dir.workbooks[0], opts);
+
+	var props = {}, propdata = &#x22;&#x22;;
+
+	if(dir.coreprops.length !== 0) {
+		propdata = getzipstr(zip, dir.coreprops[0].replace(/^\//,&#x27;&#x27;), true);
+		if(propdata) props = parse_core_props(propdata);
+		if(dir.extprops.length !== 0) {
+			propdata = getzipstr(zip, dir.extprops[0].replace(/^\//,&#x27;&#x27;), true);
+			if(propdata) parse_ext_props(propdata, props);
+		}
+	}
+
+	var custprops = {};
+	if(!opts.bookSheets || opts.bookProps) {
+		if (dir.custprops.length !== 0) {
+			propdata = getzipstr(zip, dir.custprops[0].replace(/^\//,&#x27;&#x27;), true);
+			if(propdata) custprops = parse_cust_props(propdata, opts);
+		}
+	}
+
+	var out = ({});
+	if(opts.bookSheets || opts.bookProps) {
+		if(wb.Sheets) sheets = wb.Sheets.map(function pluck(x){ return x.name; });
+		else if(props.Worksheets &#x26;&#x26; props.SheetNames.length &#x3e; 0) sheets=props.SheetNames;
+		if(opts.bookProps) { out.Props = props; out.Custprops = custprops; }
+		if(opts.bookSheets &#x26;&#x26; typeof sheets !== &#x27;undefined&#x27;) out.SheetNames = sheets;
+		if(opts.bookSheets ? out.SheetNames : opts.bookProps) return out;
+	}
+	sheets = {};
+
+	var deps = {};
+	if(opts.bookDeps &#x26;&#x26; dir.calcchain) deps=parse_cc(getzipdata(zip, dir.calcchain.replace(/^\//,&#x27;&#x27;)),dir.calcchain,opts);
+
+	var i=0;
+	var sheetRels = ({});
+	var path, relsPath;
+
+	//if(!props.Worksheets) {
+		var wbsheets = wb.Sheets;
+		props.Worksheets = wbsheets.length;
+		props.SheetNames = [];
+		for(var j = 0; j != wbsheets.length; ++j) {
+			props.SheetNames[j] = wbsheets[j].name;
+		}
+	//}
+
+	var wbext = xlsb ? &#x22;bin&#x22; : &#x22;xml&#x22;;
+	var wbrelsfile = &#x27;xl/_rels/workbook.&#x27; + wbext + &#x27;.rels&#x27;;
+	var wbrels = parse_rels(getzipstr(zip, wbrelsfile, true), wbrelsfile);
+	if(wbrels) wbrels = safe_parse_wbrels(wbrels, wb.Sheets);
+	/* Numbers iOS hack */
+	var nmode = (getzipdata(zip,&#x22;xl/worksheets/sheet.xml&#x22;,true))?1:0;
+	for(i = 0; i != props.Worksheets; ++i) {
+		var stype = &#x22;sheet&#x22;;
+		if(wbrels &#x26;&#x26; wbrels[i]) {
+			path = &#x27;xl/&#x27; + (wbrels[i][1]).replace(/[\/]?xl\//, &#x22;&#x22;);
+			stype = wbrels[i][2];
+		} else {
+			path = &#x27;xl/worksheets/sheet&#x27;+(i+1-nmode)+&#x22;.&#x22; + wbext;
+			path = path.replace(/sheet0\./,&#x22;sheet.&#x22;);
+		}
+		relsPath = path.replace(/^(.*)(\/)([^\/]*)$/, &#x22;$1/_rels/$3.rels&#x22;);
+		safe_parse_sheet(zip, path, relsPath, props.SheetNames[i], sheetRels, sheets, stype, opts, wb, themes, styles);
+	}
+
+	if(dir.comments) parse_comments(zip, dir.comments, sheets, sheetRels, opts);
+
+	out = ({
+		Directory: dir,
+		Workbook: wb,
+		Props: props,
+		Custprops: custprops,
+		Deps: deps,
+		Sheets: sheets,
+		SheetNames: props.SheetNames,
+		Strings: strs,
+		Styles: styles,
+		Themes: themes,
+		SSF: SSF.get_table()
+	});
+	if(opts.bookFiles) {
+		out.keys = entries;
+		out.files = zip.files;
+	}
+	if(opts.bookVBA) {
+		if ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.read" id="apidoc.element.j.XLSX.read">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>read
+        <span class="apidocSignatureSpan">(data, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readSync(data, opts) {
+	var zip, d = data, n=[0];
+	var o = opts||{};
+	if(!o.type) o.type = (has_buf &#x26;&#x26; Buffer.isBuffer(data)) ? &#x22;buffer&#x22; : &#x22;base64&#x22;;
+	if(o.type == &#x22;file&#x22;) { o.type = &#x22;buffer&#x22;; d = _fs.readFileSync(data); }
+	switch((n = firstbyte(d, o))[0]) {
+		case 0xD0: return parse_xlscfb(CFB.read(d, o), o);
+		case 0x09: return parse_xlscfb(s2a(o.type === &#x27;base64&#x27; ? Base64.decode(d) : d), o);
+		case 0x3C: return parse_xlml(d, o);
+		case 0x49: if(n[1] == 0x44) return SYLK.to_workbook(d, o); break;
+		case 0x54: if(n[1] == 0x41 &#x26;&#x26; n[2] == 0x42 &#x26;&#x26; n[3] == 0x4C) return DIF.to_workbook(d, o); break;
+		case 0x50: if(n[1] == 0x4B &#x26;&#x26; n[2] &#x3c; 0x20 &#x26;&#x26; n[3] &#x3c; 0x20) return read_zip(d, o); break;
+		case 0xEF: return parse_xlml(d, o);
+		case 0xFF: if(n[1] == 0xFE){ return read_utf16(d, o); } break;
+		case 0x03: case 0x83: case 0x8B: return DBF.to_workbook(d, o);
+	}
+	if(n[2] &#x3c;= 12 &#x26;&#x26; n[3] &#x3c;= 31) return DBF.to_workbook(d, o);
+	if(0x20&#x3e;n[0]||n[0]&#x3e;0x7F) throw new Error(&#x22;Unsupported file &#x22; + n.join(&#x22;|&#x22;));
+	return PRN.to_workbook(d, o);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.readFile" id="apidoc.element.j.XLSX.readFile">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>readFile
+        <span class="apidocSignatureSpan">(filename, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readFileSync(filename, opts) {
+	var o = opts||{}; o.type = &#x27;file&#x27;;
+	return readSync(filename, o);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Node Library
+
+```js
+var J = require(&#x27;j&#x27;);
+```
+
+`J.<span class="apidocCodeKeywordSpan">readFile</span>(filename)` opens the file specified by filename and returns an array
+whose first object is the parsing object (XLS or XLSX) and whose second object
+is the parsed file.
+
+`J.utils` has various helpers that expect an array like those from readFile:
+
+| Format                                                   |   util helper     |
+|:---------------------------------------------------------|:------------------|
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.readFileSync" id="apidoc.element.j.XLSX.readFileSync">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>readFileSync
+        <span class="apidocSignatureSpan">(filename, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readFileSync(filename, opts) {
+	var o = opts||{}; o.type = &#x27;file&#x27;;
+	return readSync(filename, o);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.write" id="apidoc.element.j.XLSX.write">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>write
+        <span class="apidocSignatureSpan">(wb, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writeSync(wb, opts) {
+	check_wb(wb);
+	var o = opts||{};
+	switch(o.bookType || &#x27;xlsb&#x27;) {
+		case &#x27;xml&#x27;:
+		case &#x27;xlml&#x27;: return write_string_type(write_xlml(wb, o), o);
+		case &#x27;slk&#x27;:
+		case &#x27;sylk&#x27;: return write_string_type(write_slk_str(wb, o), o);
+		case &#x27;txt&#x27;: return write_bstr_type(write_txt_str(wb, o), o);
+		case &#x27;csv&#x27;: return write_string_type(write_csv_str(wb, o), o);
+		case &#x27;dif&#x27;: return write_string_type(write_dif_str(wb, o), o);
+		case &#x27;prn&#x27;: return write_string_type(write_prn_str(wb, o), o);
+		case &#x27;fods&#x27;: return write_string_type(write_ods(wb, o), o);
+		case &#x27;biff2&#x27;: return write_binary_type(write_biff_buf(wb, o), o);
+		case &#x27;xlsx&#x27;:
+		case &#x27;xlsm&#x27;:
+		case &#x27;xlsb&#x27;:
+		case &#x27;ods&#x27;: return write_zip_type(wb, o);
+		default: throw new Error (&#x22;Unrecognized bookType |&#x22; + o.bookType + &#x22;|&#x22;);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.writeFile" id="apidoc.element.j.XLSX.writeFile">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>writeFile
+        <span class="apidocSignatureSpan">(wb, filename, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writeFileSync(wb, filename, opts) {
+	var o = opts||{}; o.type = &#x27;file&#x27;;
+	o.file = filename;
+	resolve_book_type(o);
+	return writeSync(wb, o);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.writeFileAsync" id="apidoc.element.j.XLSX.writeFileAsync">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>writeFileAsync
+        <span class="apidocSignatureSpan">(filename, wb, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writeFileAsync(filename, wb, opts, cb) {
+	var o = opts||{}; o.type = &#x27;file&#x27;;
+	o.file = filename;
+	resolve_book_type(o);
+	o.type = &#x27;buffer&#x27;;
+	var _cb = cb; if(!(_cb instanceof Function)) _cb = (opts);
+	return _fs.writeFile(filename, writeSync(wb, o), _cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.writeFileSync" id="apidoc.element.j.XLSX.writeFileSync">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>writeFileSync
+        <span class="apidocSignatureSpan">(wb, filename, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writeFileSync(wb, filename, opts) {
+	var o = opts||{}; o.type = &#x27;file&#x27;;
+	o.file = filename;
+	resolve_book_type(o);
+	return writeSync(wb, o);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.write_ods" id="apidoc.element.j.XLSX.write_ods">
+        function <span class="apidocSignatureSpan">j.XLSX.</span>write_ods
+        <span class="apidocSignatureSpan">(wb, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function write_ods(wb, opts) {
+	if(opts.bookType == &#x22;fods&#x22;) return write_content_xml(wb, opts);
+
+var zip = new jszip();
+	var f = &#x22;&#x22;;
+
+	var manifest = [];
+	var rdf = [];
+
+	<span class="apidocCodeCommentSpan">/* 3:3.3 and 2:2.2.4 */
+</span>	f = &#x22;mimetype&#x22;;
+	zip.file(f, &#x22;application/vnd.oasis.opendocument.spreadsheet&#x22;);
+
+	/* Part 1 Section 2.2 Documents */
+	f = &#x22;content.xml&#x22;;
+	zip.file(f, write_content_xml(wb, opts));
+	manifest.push([f, &#x22;text/xml&#x22;]);
+	rdf.push([f, &#x22;ContentFile&#x22;]);
+
+	/* Part 3 Section 6 Metadata Manifest File */
+	f = &#x22;manifest.rdf&#x22;;
+	zip.file(f, write_rdf(rdf, opts));
+	manifest.push([f, &#x22;application/rdf+xml&#x22;]);
+
+	/* Part 3 Section 4 Manifest File */
+	f = &#x22;META-INF/manifest.xml&#x22;;
+	zip.file(f, write_manifest(manifest, opts));
+
+	return zip;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.j.XLSX.CFB" id="apidoc.module.j.XLSX.CFB">module j.XLSX.CFB</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.CFB.parse" id="apidoc.element.j.XLSX.CFB.parse">
+        function <span class="apidocSignatureSpan">j.XLSX.CFB.</span>parse
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse(file) {
+var mver = 3; // major version
+var ssz = 512; // sector size
+var nmfs = 0; // number of mini FAT sectors
+var ndfs = 0; // number of DIFAT sectors
+var dir_start = 0; // first directory sector location
+var minifat_start = 0; // first mini FAT sector location
+var difat_start = 0; // first mini FAT sector location
+
+var fat_addrs = []; // locations of FAT sectors
+
+<span class="apidocCodeCommentSpan">/* [MS-CFB] 2.2 Compound File Header */
+</span>var blob = file.slice(0,512);
+prep_blob(blob, 0);
+
+/* major version */
+var mv = check_get_mver(blob);
+mver = mv[0];
+switch(mver) {
+	case 3: ssz = 512; break; case 4: ssz = 4096; break;
+	default: throw new Error(&#x22;Major Version: Expected 3 or 4 saw &#x22; + mver);
+}
+
+/* reprocess header */
+if(ssz !== 512) { blob = file.slice(0,ssz); prep_blob(blob, 28 /* blob.l */); }
+/* Save header for final object */
+var header = file.slice(0,ssz);
+
+check_shifts(blob, mver);
+
+// Number of Directory Sectors
+var nds = blob.read_shift(4, &#x27;i&#x27;);
+if(mver === 3 &#x26;&#x26; nds !== 0) throw new Error(&#x27;# Directory Sectors: Expected 0 saw &#x27; + nds);
+
+// Number of FAT Sectors
+//var nfs = blob.read_shift(4, &#x27;i&#x27;);
+blob.l += 4;
+
+// First Directory Sector Location
+dir_start = blob.read_shift(4, &#x27;i&#x27;);
+
+// Transaction Signature
+blob.l += 4;
+
+// Mini Stream Cutoff Size
+blob.chk(&#x27;00100000&#x27;, &#x27;Mini Stream Cutoff Size: &#x27;);
+
+// First Mini FAT Sector Location
+minifat_start = blob.read_shift(4, &#x27;i&#x27;);
+
+// Number of Mini FAT Sectors
+nmfs = blob.read_shift(4, &#x27;i&#x27;);
+
+// First DIFAT sector location
+difat_start = blob.read_shift(4, &#x27;i&#x27;);
+
+// Number of DIFAT Sectors
+ndfs = blob.read_shift(4, &#x27;i&#x27;);
+
+// Grab FAT Sector Locations
+for(var q, j = 0; j &#x3c; 109; ++j) { /* 109 = (512 - blob.l)&#x3e;&#x3e;&#x3e;2; */
+	q = blob.read_shift(4, &#x27;i&#x27;);
+	if(q&#x3c;0) break;
+	fat_addrs[j] = q;
+}
+
+/** Break the file up into sectors */
+var sectors = sectorify(file, ssz);
+
+sleuth_fat(difat_start, ndfs, sectors, ssz, fat_addrs);
+
+/** Chains */
+var sector_list = make_sector_list(sectors, dir_start, fat_addrs, ssz);
+
+sector_list[dir_start].name = &#x22;!Directory&#x22;;
+if(nmfs &#x3e; 0 &#x26;&#x26; minifat_start !== ENDOFCHAIN) sector_list[minifat_start].name = &#x22;!MiniFAT&#x22;;
+sector_list[fat_addrs[0]].name = &#x22;!FAT&#x22;;
+sector_list.fat_addrs = fat_addrs;
+sector_list.ssz = ssz;
+
+/* [MS-CFB] 2.6.1 Compound File Directory Entry */
+var files = {}, Paths = [], FileIndex = [], FullPaths = [], FullPathDir = {};
+read_directory(dir_start, sector_list, sectors, Paths, nmfs, files, FileIndex);
+
+build_full_paths(FileIndex, FullPathDir, FullPaths, Paths);
+
+var root_name = Paths.shift();
+Paths.root = root_name;
+
+/* [MS-CFB] 2.6.4 (Unicode 3.0.1 case conversion) */
+var find_path = make_find_path(FullPaths, Paths, FileIndex, files, root_name);
+
+return {
+	raw: {header: header, sectors: sectors},
+	FileIndex: FileIndex,
+	FullPaths: FullPaths,
+	FullPathDir: FullPathDir,
+	find: find_path
+};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.CFB.read" id="apidoc.element.j.XLSX.CFB.read">
+        function <span class="apidocSignatureSpan">j.XLSX.CFB.</span>read
+        <span class="apidocSignatureSpan">(blob, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readSync(blob, options) {
+	switch(options !== undefined &#x26;&#x26; options.type !== undefined ? options.type : &#x22;base64&#x22;) {
+		case &#x22;file&#x22;: return readFileSync(blob, options);
+		case &#x22;base64&#x22;: return parse(s2a(Base64.decode(blob)), options);
+		case &#x22;binary&#x22;: return parse(s2a(blob), options);
+	}
+	return parse(blob);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.j.XLSX.SSF" id="apidoc.module.j.XLSX.SSF">module j.XLSX.SSF</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF._eval" id="apidoc.element.j.XLSX.SSF._eval">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_eval
+        <span class="apidocSignatureSpan">(fmt, v, opts, flen)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function eval_fmt(fmt, v, opts, flen) {
+	var out = [], o = &#x22;&#x22;, i = 0, c = &#x22;&#x22;, lst=&#x27;t&#x27;, q, dt, j, cc;
+	var hr=&#x27;H&#x27;;
+	<span class="apidocCodeCommentSpan">/* Tokenize */
+</span>	while(i &#x3c; fmt.length) {
+		switch((c = fmt.charAt(i))) {
+			case &#x27;G&#x27;: /* General */
+				if(!isgeneral(fmt, i)) throw new Error(&#x27;unrecognized character &#x27; + c + &#x27; in &#x27; +fmt);
+				out[out.length] = {t:&#x27;G&#x27;, v:&#x27;General&#x27;}; i+=7; break;
+			case &#x27;&#x22;&#x27;: /* Literal text */
+				for(o=&#x22;&#x22;;(cc=fmt.charCodeAt(++i)) !== 34 &#x26;&#x26; i &#x3c; fmt.length;) o += String.fromCharCode(cc);
+				out[out.length] = {t:&#x27;t&#x27;, v:o}; ++i; break;
+			case &#x27;\\&#x27;: var w = fmt.charAt(++i), t = (w === &#x22;(&#x22; || w === &#x22;)&#x22;) ? w : &#x27;t&#x27;;
+				out[out.length] = {t:t, v:w}; ++i; break;
+			case &#x27;_&#x27;: out[out.length] = {t:&#x27;t&#x27;, v:&#x22; &#x22;}; i+=2; break;
+			case &#x27;@&#x27;: /* Text Placeholder */
+				out[out.length] = {t:&#x27;T&#x27;, v:v}; ++i; break;
+			case &#x27;B&#x27;: case &#x27;b&#x27;:
+				if(fmt.charAt(i+1) === &#x22;1&#x22; || fmt.charAt(i+1) === &#x22;2&#x22;) {
+					if(dt==null) { dt=parse_date_code(v, opts, fmt.charAt(i+1) === &#x22;2&#x22;); if(dt==null) return &#x22;&#x22;; }
+					out[out.length] = {t:&#x27;X&#x27;, v:fmt.substr(i,2)}; lst = c; i+=2; break;
+				}
+				/* falls through */
+			case &#x27;M&#x27;: case &#x27;D&#x27;: case &#x27;Y&#x27;: case &#x27;H&#x27;: case &#x27;S&#x27;: case &#x27;E&#x27;:
+				c = c.toLowerCase();
+				/* falls through */
+			case &#x27;m&#x27;: case &#x27;d&#x27;: case &#x27;y&#x27;: case &#x27;h&#x27;: case &#x27;s&#x27;: case &#x27;e&#x27;: case &#x27;g&#x27;:
+				if(v &#x3c; 0) return &#x22;&#x22;;
+				if(dt==null) { dt=parse_date_code(v, opts); if(dt==null) return &#x22;&#x22;; }
+				o = c; while(++i&#x3c;fmt.length &#x26;&#x26; fmt.charAt(i).toLowerCase() === c) o+=c;
+				if(c === &#x27;m&#x27; &#x26;&#x26; lst.toLowerCase() === &#x27;h&#x27;) c = &#x27;M&#x27;; /* m = minute */
+				if(c === &#x27;h&#x27;) c = hr;
+				out[out.length] = {t:c, v:o}; lst = c; break;
+			case &#x27;A&#x27;:
+				q={t:c, v:&#x22;A&#x22;};
+				if(dt==null) dt=parse_date_code(v, opts);
+				if(fmt.substr(i, 3) === &#x22;A/P&#x22;) { if(dt!=null) q.v = dt.H &#x3e;= 12 ? &#x22;P&#x22; : &#x22;A&#x22;; q.t = &#x27;T&#x27;; hr=&#x27;h&#x27;;i+=3;}
+				else if(fmt.substr(i,5) === &#x22;AM/PM&#x22;) { if(dt!=null) q.v = dt.H &#x3e;= 12 ? &#x22;PM&#x22; : &#x22;AM&#x22;; q.t = &#x27;T&#x27;; i+=5; hr=&#x27;h&#x27;; }
+				else { q.t = &#x22;t&#x22;; ++i; }
+				if(dt==null &#x26;&#x26; q.t === &#x27;T&#x27;) return &#x22;&#x22;;
+				out[out.length] = q; lst = c; break;
+			case &#x27;[&#x27;:
+				o = c;
+				while(fmt.charAt(i++) !== &#x27;]&#x27; &#x26;&#x26; i &#x3c; fmt.length) o += fmt.charAt(i);
+				if(o.slice(-1) !== &#x27;]&#x27;) throw &#x27;unterminated &#x22;[&#x22; block: |&#x27; + o + &#x27;|&#x27;;
+				if(o.match(abstime)) {
+					if(dt==null) { dt=parse_date_code(v, opts); if(dt==null) return &#x22;&#x22;; }
+					out[out.length] = {t:&#x27;Z&#x27;, v:o.toLowerCase()};
+				} else { o=&#x22;&#x22;; }
+				break;
+			/* Numbers */
+			case &#x27;.&#x27;:
+				if(dt != null) {
+					o = c; while((c=fmt.charAt(++i)) === &#x22;0&#x22;) o += c;
+					out[out.length] = {t:&#x27;s&#x27;, v:o}; break;
+				}
+				/* falls through */
+			case &#x27;0&#x27;: case &#x27;#&#x27;:
+				o = c; while(++i &#x3c; fmt.length &#x26;&#x26; &#x22;0#?.,E+-%&#x22;.indexOf(c=fmt.charAt(i)) &#x3e; -1 || c==&#x27;\\&#x27; &#x26;&#x26; fmt.charAt(i+1) == &#x22;-&#x22; &#x26;&#x26; &#x22;0#&#x22;.indexOf
+(fmt.charAt(i+2))&#x3e;-1) o += c;
+				out[out.length] = {t:&#x27;n&#x27;, v:o}; break;
+			case &#x27;?&#x27;:
+				o = c; while(fmt.charAt(++i) === c) o+=c;
+				q={t:c, v:o}; out[out.length] = q; lst = c; break;
+			case &#x27;*&#x27;: ++i; if(fmt.charAt(i) == &#x27; &#x27; || fmt.charAt(i) == &#x27;*&#x27;) ++i; break; // **
+			case &#x27;(&#x27;: case &#x27;)&#x27;: out[out.length] = {t:(flen===1?&#x27;t&#x27;:c), v:c}; ++i; break;
+			case &#x27;1&#x27;: case &#x27;2&#x27;: case &#x27;3&#x27;: case &#x27;4&#x27;: case &#x27;5&#x27;: case &#x27;6&#x27;: case &#x27;7&#x27;: case &#x27;8&#x27;: case &#x27;9&#x27;:
+				o = c; while(i &#x3c; fmt.length &#x26;&#x26; &#x22;0123456789&#x22;.indexOf(fmt.charAt(++i)) &#x3e; -1) o+=fmt.charAt(i);
+				out[out.length] = {t:&#x27;D&#x27;, v:o}; break;
+			case &#x27; &#x27;: out[out.length] = {t:c, v:c}; ++i; break;
+			default:
+				if(&#x22;,$-+/():!^&#x26;&#x27;~{}&#x3c;&#x3e;=€acfijklopqrtuvwxz&#x22;.indexOf(c) === -1) throw new Error(&#x27;unrecognized character &#x27; + c + &#x27; in &#x27; + fmt);
+				out[out.length] = {t:&#x27;t&#x27;, v:c}; ++i; break;
+		}
+	}
+	var bt = 0, ss0 = 0, ssm;
+	for(i=out.length-1, lst=&#x27;t&#x27;; i &#x3e;= 0; --i) {
+		switch(out[i].t) {
+			case &#x27;h&#x27;: case &#x27;H&#x27;: out[i].t = hr; lst=&#x27;h&#x27;; if(bt &#x3c; 1) bt = 1; break;
+			case &#x27;s&#x27;:
+				if((ssm=out[i].v.match(/\.0+$/))) ss0=Math.max(ss0,ssm[0].length-1);
+				if(bt &#x3c; 3) bt = 3;
+			/* falls through */
+			case &#x27;d&#x27;: case &#x27;y&#x27;: case &#x27;M&#x27;: case &#x27;e&#x27;: lst=out[i].t; break;
+			case &#x27;m&#x27;: if(lst === &#x27;s&#x27;) { out[i].t = &#x27;M&#x27;; if(bt &#x3c; 2) bt = 2; } break;
+			case &#x27;X&#x27;: if(out[i].v === &#x22;B2&#x22;);
+				break;
+			case &#x27;Z&#x27;:
+				if(bt &#x3c; 1 &#x26;&#x26; out[i].v.match(/[Hh]/)) bt = 1;
+				if(bt &#x3c; 2 ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF._general" id="apidoc.element.j.XLSX.SSF._general">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_general
+        <span class="apidocSignatureSpan">(v, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function general_fmt(v, opts) {
+	switch(typeof v) {
+		case &#x27;string&#x27;: return v;
+		case &#x27;boolean&#x27;: return v ? &#x22;TRUE&#x22; : &#x22;FALSE&#x22;;
+		case &#x27;number&#x27;: return (v|0) === v ? general_fmt_int(v, opts) : general_fmt_num(v, opts);
+	}
+	throw new Error(&#x22;unsupported value in General format: &#x22; + v);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF._general_int" id="apidoc.element.j.XLSX.SSF._general_int">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_general_int
+        <span class="apidocSignatureSpan">(v, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function general_fmt_int(v, opts) { return &#x22;&#x22;+v; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF._general_num" id="apidoc.element.j.XLSX.SSF._general_num">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_general_num
+        <span class="apidocSignatureSpan">(v, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function general_fmt_num(v, opts) {
+	var V = Math.floor(Math.log(Math.abs(v))*Math.LOG10E), o;
+	if(V &#x3e;= -4 &#x26;&#x26; V &#x3c;= -1) o = v.toPrecision(10+V);
+	else if(Math.abs(V) &#x3c;= 9) o = gfn2(v);
+	else if(V === 10) o = v.toFixed(10).substr(0,12);
+	else o = gfn3(v);
+	return gfn5(gfn4(o));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF._split" id="apidoc.element.j.XLSX.SSF._split">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>_split
+        <span class="apidocSignatureSpan">(fmt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function split_fmt(fmt) {
+	var out = [];
+	var in_str = false, cc;
+	for(var i = 0, j = 0; i &#x3c; fmt.length; ++i) switch((cc=fmt.charCodeAt(i))) {
+		case 34:<span class="apidocCodeCommentSpan"> /* &#x27;&#x22;&#x27; */
+</span>			in_str = !in_str; break;
+		case 95: case 42: case 92: /* &#x27;_&#x27; &#x27;*&#x27; &#x27;\\&#x27; */
+			++i; break;
+		case 59: /* &#x27;;&#x27; */
+			out[out.length] = fmt.substr(j,i-j);
+			j = i+1;
+	}
+	out[out.length] = fmt.substr(j);
+	if(in_str === true) throw new Error(&#x22;Format |&#x22; + fmt + &#x22;| unterminated string &#x22;);
+	return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF.format" id="apidoc.element.j.XLSX.SSF.format">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>format
+        <span class="apidocSignatureSpan">(fmt, v, o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function format(fmt, v, o) {
+	fixopts(o != null ? o : (o=[]));
+	var sfmt = &#x22;&#x22;;
+	switch(typeof fmt) {
+		case &#x22;string&#x22;: sfmt = fmt; break;
+		case &#x22;number&#x22;: sfmt = (o.table != null ? (o.table) : table_fmt)[fmt]; break;
+	}
+	if(isgeneral(sfmt,0)) return general_fmt(v, o);
+	var f = choose_fmt(sfmt, v);
+	if(isgeneral(f[1])) return general_fmt(v, o);
+	if(v === true) v = &#x22;TRUE&#x22;; else if(v === false) v = &#x22;FALSE&#x22;;
+	else if(v === &#x22;&#x22; || v == null) return &#x22;&#x22;;
+	return eval_fmt(f[1], v, o, f[0]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF.get_table" id="apidoc.element.j.XLSX.SSF.get_table">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>get_table
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function get_table() { return table_fmt; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF.is_date" id="apidoc.element.j.XLSX.SSF.is_date">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>is_date
+        <span class="apidocSignatureSpan">(fmt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fmt_is_date(fmt) {
+	var i = 0, cc = 0, c = &#x22;&#x22;, o = &#x22;&#x22;;
+	while(i &#x3c; fmt.length) {
+		switch((c = fmt.charAt(i))) {
+			case &#x27;G&#x27;: if(isgeneral(fmt, i)) i+= 6; i++; break;
+			case &#x27;&#x22;&#x27;: for(;(cc=fmt.charCodeAt(++i)) !== 34 &#x26;&#x26; i &#x3c; fmt.length;) ++i; ++i; break;
+			case &#x27;\\&#x27;: i+=2; break;
+			case &#x27;_&#x27;: i+=2; break;
+			case &#x27;@&#x27;: ++i; break;
+			case &#x27;B&#x27;: case &#x27;b&#x27;:
+				if(fmt.charAt(i+1) === &#x22;1&#x22; || fmt.charAt(i+1) === &#x22;2&#x22;) return true;
+				<span class="apidocCodeCommentSpan">/* falls through */
+</span>			case &#x27;M&#x27;: case &#x27;D&#x27;: case &#x27;Y&#x27;: case &#x27;H&#x27;: case &#x27;S&#x27;: case &#x27;E&#x27;:
+				/* falls through */
+			case &#x27;m&#x27;: case &#x27;d&#x27;: case &#x27;y&#x27;: case &#x27;h&#x27;: case &#x27;s&#x27;: case &#x27;e&#x27;: case &#x27;g&#x27;: return true;
+			case &#x27;A&#x27;:
+				if(fmt.substr(i, 3) === &#x22;A/P&#x22;) return true;
+				if(fmt.substr(i, 5) === &#x22;AM/PM&#x22;) return true;
+				++i; break;
+			case &#x27;[&#x27;:
+				o = c;
+				while(fmt.charAt(i++) !== &#x27;]&#x27; &#x26;&#x26; i &#x3c; fmt.length) o += fmt.charAt(i);
+				if(o.match(abstime)) return true;
+				break;
+			case &#x27;.&#x27;:
+				/* falls through */
+			case &#x27;0&#x27;: case &#x27;#&#x27;:
+				while(i &#x3c; fmt.length &#x26;&#x26; (&#x22;0#?.,E+-%&#x22;.indexOf(c=fmt.charAt(++i)) &#x3e; -1 || c==&#x27;\\&#x27; &#x26;&#x26; fmt.charAt(i+1) == &#x22;-&#x22; &#x26;&#x26; &#x22;0#&#x22;.indexOf(fmt
+.charAt(i+2))&#x3e;-1));
+				break;
+			case &#x27;?&#x27;: while(fmt.charAt(++i) === c); break;
+			case &#x27;*&#x27;: ++i; if(fmt.charAt(i) == &#x27; &#x27; || fmt.charAt(i) == &#x27;*&#x27;) ++i; break;
+			case &#x27;(&#x27;: case &#x27;)&#x27;: ++i; break;
+			case &#x27;1&#x27;: case &#x27;2&#x27;: case &#x27;3&#x27;: case &#x27;4&#x27;: case &#x27;5&#x27;: case &#x27;6&#x27;: case &#x27;7&#x27;: case &#x27;8&#x27;: case &#x27;9&#x27;:
+				while(i &#x3c; fmt.length &#x26;&#x26; &#x22;0123456789&#x22;.indexOf(fmt.charAt(++i)) &#x3e; -1); break;
+			case &#x27; &#x27;: ++i; break;
+			default: ++i; break;
+		}
+	}
+	return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF.load" id="apidoc.element.j.XLSX.SSF.load">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>load
+        <span class="apidocSignatureSpan">(fmt, idx)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function load_entry(fmt, idx) { table_fmt[idx] = fmt; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF.load_table" id="apidoc.element.j.XLSX.SSF.load_table">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>load_table
+        <span class="apidocSignatureSpan">(tbl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function load_table(tbl) { for(var i=0; i!=0x0188; ++i) if(tbl[i] !== undefined) SSF.load(tbl[i], i); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.SSF.parse_date_code" id="apidoc.element.j.XLSX.SSF.parse_date_code">
+        function <span class="apidocSignatureSpan">j.XLSX.SSF.</span>parse_date_code
+        <span class="apidocSignatureSpan">(v, opts, b2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_date_code(v, opts, b2) {
+	if(v &#x3e; 2958465 || v &#x3c; 0) return null;
+	var date = (v|0), time = Math.floor(86400 * (v - date)), dow=0;
+	var dout=[];
+	var out={D:date, T:time, u:86400*(v-date)-time,y:0,m:0,d:0,H:0,M:0,S:0,q:0};
+	if(Math.abs(out.u) &#x3c; 1e-6) out.u = 0;
+	fixopts(opts != null ? opts : (opts=[]));
+	if(opts.date1904) date += 1462;
+	if(out.u &#x3e; 0.999) {
+		out.u = 0;
+		if(++time == 86400) { time = 0; ++date; }
+	}
+	if(date === 60) {dout = b2 ? [1317,10,29] : [1900,2,29]; dow=3;}
+	else if(date === 0) {dout = b2 ? [1317,8,29] : [1900,1,0]; dow=6;}
+	else {
+		if(date &#x3e; 60) --date;
+		<span class="apidocCodeCommentSpan">/* 1 = Jan 1 1900 in Gregorian */
+</span>		var d = new Date(1900, 0, 1);
+		d.setDate(d.getDate() + date - 1);
+		dout = [d.getFullYear(), d.getMonth()+1,d.getDate()];
+		dow = d.getDay();
+		if(date &#x3c; 60) dow = (dow + 6) % 7;
+		if(b2) dow = fix_hijri(d, dout);
+	}
+	out.y = dout[0]; out.m = dout[1]; out.d = dout[2];
+	out.S = time % 60; time = Math.floor(time / 60);
+	out.M = time % 60; time = Math.floor(time / 60);
+	out.H = time;
+	out.q = dow;
+	return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.j.XLSX.utils" id="apidoc.module.j.XLSX.utils">module j.XLSX.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.aoa_to_sheet" id="apidoc.element.j.XLSX.utils.aoa_to_sheet">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>aoa_to_sheet
+        <span class="apidocSignatureSpan">(data, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function aoa_to_sheet(data, opts) {
+	var o = opts || {};
+	var ws = ({});
+	var range = ({s: {c:10000000, r:10000000}, e: {c:0, r:0}});
+	for(var R = 0; R != data.length; ++R) {
+		for(var C = 0; C != data[R].length; ++C) {
+			if(typeof data[R][C] === &#x27;undefined&#x27;) continue;
+			var cell = ({v: data[R][C] });
+			if(range.s.r &#x3e; R) range.s.r = R;
+			if(range.s.c &#x3e; C) range.s.c = C;
+			if(range.e.r &#x3c; R) range.e.r = R;
+			if(range.e.c &#x3c; C) range.e.c = C;
+			var cell_ref = encode_cell(({c:C,r:R}));
+			if(cell.v === null) { if(!o.cellStubs) continue; cell.t = &#x27;z&#x27;; }
+			else if(typeof cell.v === &#x27;number&#x27;) cell.t = &#x27;n&#x27;;
+			else if(typeof cell.v === &#x27;boolean&#x27;) cell.t = &#x27;b&#x27;;
+			else if(cell.v instanceof Date) {
+				cell.z = o.dateNF || SSF._table[14];
+				if(o.cellDates) { cell.t = &#x27;d&#x27;; cell.w = SSF.format(cell.z, datenum(cell.v)); }
+				else { cell.t = &#x27;n&#x27;; cell.v = datenum(cell.v); cell.w = SSF.format(cell.z, cell.v); }
+			}
+			else cell.t = &#x27;s&#x27;;
+			ws[cell_ref] = cell;
+		}
+	}
+	if(range.s.c &#x3c; 10000000) ws[&#x27;!ref&#x27;] = encode_range(range);
+	return ws;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.decode_cell" id="apidoc.element.j.XLSX.utils.decode_cell">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>decode_cell
+        <span class="apidocSignatureSpan">(cstr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function decode_cell(cstr) { var splt = split_cell(cstr); return { c:decode_col(splt[0]), r:decode_row(splt[1]) }; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.decode_col" id="apidoc.element.j.XLSX.utils.decode_col">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>decode_col
+        <span class="apidocSignatureSpan">(colstr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function decode_col(colstr) { var c = unfix_col(colstr), d = 0, i = 0; for(; i !== c.length; ++i) d = 26*d + c.charCodeAt(i) - 64
+; return d - 1; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.decode_range" id="apidoc.element.j.XLSX.utils.decode_range">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>decode_range
+        <span class="apidocSignatureSpan">(range)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function decode_range(range) { var x =range.split(&#x22;:&#x22;).map(decode_cell); return {s:x[0],e:x[x.length-1]}; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.decode_row" id="apidoc.element.j.XLSX.utils.decode_row">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>decode_row
+        <span class="apidocSignatureSpan">(rowstr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function decode_row(rowstr) { return parseInt(unfix_row(rowstr),10) - 1; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.encode_cell" id="apidoc.element.j.XLSX.utils.encode_cell">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>encode_cell
+        <span class="apidocSignatureSpan">(cell)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encode_cell(cell) { return encode_col(cell.c) + encode_row(cell.r); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.encode_col" id="apidoc.element.j.XLSX.utils.encode_col">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>encode_col
+        <span class="apidocSignatureSpan">(col)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encode_col(col) { var s=&#x22;&#x22;; for(++col; col; col=Math.floor((col-1)/26)) s = String.fromCharCode(((col-1)%26) + 65) + s;
+return s; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.encode_range" id="apidoc.element.j.XLSX.utils.encode_range">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>encode_range
+        <span class="apidocSignatureSpan">(cs, ce)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encode_range(cs, ce) {
+	if(typeof ce === &#x27;undefined&#x27; || typeof ce === &#x27;number&#x27;) {
+return encode_range(cs.s, cs.e);
+	}
+if(typeof cs !== &#x27;string&#x27;) cs = encode_cell((cs));
+	if(typeof ce !== &#x27;string&#x27;) ce = encode_cell((ce));
+return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.encode_row" id="apidoc.element.j.XLSX.utils.encode_row">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>encode_row
+        <span class="apidocSignatureSpan">(row)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encode_row(row) { return &#x22;&#x22; + (row + 1); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.format_cell" id="apidoc.element.j.XLSX.utils.format_cell">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>format_cell
+        <span class="apidocSignatureSpan">(cell, v, o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function format_cell(cell, v, o) {
+	if(cell == null || cell.t == null || cell.t == &#x27;z&#x27;) return &#x22;&#x22;;
+	if(cell.w !== undefined) return cell.w;
+	if(cell.t == &#x27;d&#x27; &#x26;&#x26; !cell.z &#x26;&#x26; o &#x26;&#x26; o.dateNF) cell.z = o.dateNF;
+	if(v == undefined) return safe_format_cell(cell, cell.v, o);
+	return safe_format_cell(cell, v, o);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.get_formulae" id="apidoc.element.j.XLSX.utils.get_formulae">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>get_formulae
+        <span class="apidocSignatureSpan">(sheet)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sheet_to_formulae(sheet) {
+	var y = &#x22;&#x22;, x, val=&#x22;&#x22;;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	var r = safe_decode_range(sheet[&#x27;!ref&#x27;]), rr = &#x22;&#x22;, cols = [], C;
+	var cmds = new Array((r.e.r-r.s.r+1)*(r.e.c-r.s.c+1));
+	var i = 0;
+	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
+	for(var R = r.s.r; R &#x3c;= r.e.r; ++R) {
+		rr = encode_row(R);
+		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			y = cols[C] + rr;
+			x = sheet[y];
+			val = &#x22;&#x22;;
+			if(x === undefined) continue;
+			else if(x.F != null) {
+				y = x.F;
+				if(!x.f) continue;
+				val = x.f;
+				if(y.indexOf(&#x22;:&#x22;) == -1) y = y + &#x22;:&#x22; + y;
+			}
+			if(x.f != null) val = x.f;
+			else if(x.t == &#x27;z&#x27;) continue;
+			else if(x.t == &#x27;n&#x27; &#x26;&#x26; x.v != null) val = &#x22;&#x22; + x.v;
+			else if(x.t == &#x27;b&#x27;) val = x.v ? &#x22;TRUE&#x22; : &#x22;FALSE&#x22;;
+			else if(x.w !== undefined) val = &#x22;&#x27;&#x22; + x.w;
+			else if(x.v === undefined) continue;
+			else if(x.t == &#x27;s&#x27;) val = &#x22;&#x27;&#x22; + x.v;
+			else val = &#x22;&#x22;+x.v;
+			cmds[i++] = y + &#x22;=&#x22; + val;
+		}
+	}
+	cmds.length = i;
+	return cmds;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.make_csv" id="apidoc.element.j.XLSX.utils.make_csv">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>make_csv
+        <span class="apidocSignatureSpan">(sheet, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sheet_to_csv(sheet, opts) {
+	var out = &#x22;&#x22;, txt = &#x22;&#x22;, qreg = /&#x22;/g;
+	var o = opts == null ? {} : opts;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return &#x22;&#x22;;
+	var r = safe_decode_range(sheet[&#x22;!ref&#x22;]);
+	var FS = o.FS !== undefined ? o.FS : &#x22;,&#x22;, fs = FS.charCodeAt(0);
+	var RS = o.RS !== undefined ? o.RS : &#x22;\n&#x22;, rs = RS.charCodeAt(0);
+	var endregex = new RegExp((FS==&#x22;|&#x22; ? &#x22;\\|&#x22; : FS)+&#x22;+$&#x22;);
+	var row = &#x22;&#x22;, rr = &#x22;&#x22;, cols = [];
+	var i = 0, cc = 0, val;
+	var R = 0, C = 0;
+	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
+	for(R = r.s.r; R &#x3c;= r.e.r; ++R) {
+		var isempty = true;
+		row = &#x22;&#x22;;
+		rr = encode_row(R);
+		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			val = sheet[cols[C] + rr];
+			if(val == null) txt = &#x22;&#x22;;
+			else if(val.v != null) {
+				isempty = false;
+				txt = &#x27;&#x27;+format_cell(val, null, o);
+				for(i = 0, cc = 0; i !== txt.length; ++i) if((cc = txt.charCodeAt(i)) === fs || cc === rs || cc === 34) {
+					txt = &#x22;\&#x22;&#x22; + txt.replace(qreg, &#x27;&#x22;&#x22;&#x27;) + &#x22;\&#x22;&#x22;; break; }
+			} else if(val.f != null &#x26;&#x26; !val.F) {
+				isempty = false;
+				txt = &#x27;=&#x27; + val.f; if(txt.indexOf(&#x22;,&#x22;) &#x3e;= 0) txt = &#x27;&#x22;&#x27; + txt.replace(qreg, &#x27;&#x22;&#x22;&#x27;) + &#x27;&#x22;&#x27;;
+			} else txt = &#x22;&#x22;;
+			<span class="apidocCodeCommentSpan">/* NOTE: Excel CSV does not support array formulae */
+</span>			row += (C === r.s.c ? &#x22;&#x22; : FS) + txt;
+		}
+		if(o.blankrows === false &#x26;&#x26; isempty) continue;
+		if(o.strip) row = row.replace(endregex,&#x22;&#x22;);
+		out += row + RS;
+	}
+	return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.make_formulae" id="apidoc.element.j.XLSX.utils.make_formulae">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>make_formulae
+        <span class="apidocSignatureSpan">(sheet)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sheet_to_formulae(sheet) {
+	var y = &#x22;&#x22;, x, val=&#x22;&#x22;;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	var r = safe_decode_range(sheet[&#x27;!ref&#x27;]), rr = &#x22;&#x22;, cols = [], C;
+	var cmds = new Array((r.e.r-r.s.r+1)*(r.e.c-r.s.c+1));
+	var i = 0;
+	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
+	for(var R = r.s.r; R &#x3c;= r.e.r; ++R) {
+		rr = encode_row(R);
+		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			y = cols[C] + rr;
+			x = sheet[y];
+			val = &#x22;&#x22;;
+			if(x === undefined) continue;
+			else if(x.F != null) {
+				y = x.F;
+				if(!x.f) continue;
+				val = x.f;
+				if(y.indexOf(&#x22;:&#x22;) == -1) y = y + &#x22;:&#x22; + y;
+			}
+			if(x.f != null) val = x.f;
+			else if(x.t == &#x27;z&#x27;) continue;
+			else if(x.t == &#x27;n&#x27; &#x26;&#x26; x.v != null) val = &#x22;&#x22; + x.v;
+			else if(x.t == &#x27;b&#x27;) val = x.v ? &#x22;TRUE&#x22; : &#x22;FALSE&#x22;;
+			else if(x.w !== undefined) val = &#x22;&#x27;&#x22; + x.w;
+			else if(x.v === undefined) continue;
+			else if(x.t == &#x27;s&#x27;) val = &#x22;&#x27;&#x22; + x.v;
+			else val = &#x22;&#x22;+x.v;
+			cmds[i++] = y + &#x22;=&#x22; + val;
+		}
+	}
+	cmds.length = i;
+	return cmds;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.make_json" id="apidoc.element.j.XLSX.utils.make_json">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>make_json
+        <span class="apidocSignatureSpan">(sheet, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sheet_to_json(sheet, opts){
+	var val, row, range, header = 0, offset = 1, r, hdr = [], isempty, R, C, v, vv;
+	var o = opts != null ? opts : {};
+	var raw = o.raw;
+	var defval = o.defval;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
+	if(o.header === 1) header = 1;
+	else if(o.header === &#x22;A&#x22;) header = 2;
+	else if(Array.isArray(o.header)) header = 3;
+	switch(typeof range) {
+		case &#x27;string&#x27;: r = safe_decode_range(range); break;
+		case &#x27;number&#x27;: r = safe_decode_range(sheet[&#x22;!ref&#x22;]); r.s.r = range; break;
+		default: r = range;
+	}
+	if(header &#x3e; 0) offset = 0;
+	var rr = encode_row(r.s.r);
+	var cols = new Array(r.e.c-r.s.c+1);
+	var out = new Array(r.e.r-r.s.r-offset+1);
+	var outi = 0;
+	for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
+		cols[C] = encode_col(C);
+		val = sheet[cols[C] + rr];
+		switch(header) {
+			case 1: hdr[C] = C; break;
+			case 2: hdr[C] = cols[C]; break;
+			case 3: hdr[C] = o.header[C - r.s.c]; break;
+			default:
+				if(val == null) continue;
+				vv = v = format_cell(val, null, o);
+				var counter = 0;
+				for(var CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
+				hdr[C] = vv;
+		}
+	}
+
+	for (R = r.s.r + offset; R &#x3c;= r.e.r; ++R) {
+		rr = encode_row(R);
+		isempty = true;
+		if(header === 1) row = [];
+		else {
+			row = {};
+			if(Object.defineProperty) try { Object.defineProperty(row, &#x27;__rowNum__&#x27;, {value:R, enumerable:false}); } catch(e) { row.__rowNum__
+ = R; }
+			else row.__rowNum__ = R;
+		}
+		for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			val = sheet[cols[C] + rr];
+			if(val === undefined || val.t === undefined) {
+				if(defval === undefined) continue;
+				if(hdr[C] != null) { row[hdr[C]] = defval; isempty = false; }
+				continue;
+			}
+			v = val.v;
+			switch(val.t){
+				case &#x27;z&#x27;: if(v == null) break; continue;
+				case &#x27;e&#x27;: continue;
+				case &#x27;s&#x27;: case &#x27;d&#x27;: case &#x27;b&#x27;: case &#x27;n&#x27;: break;
+				default: throw new Error(&#x27;unrecognized type &#x27; + val.t);
+			}
+			if(hdr[C] != null) {
+				if(v == null) {
+					if(defval !== undefined) row[hdr[C]] = defval;
+					else if(raw &#x26;&#x26; v === null) row[hdr[C]] = null;
+					else continue;
+				} else {
+					row[hdr[C]] = raw ? v : format_cell(val,v,o);
+				}
+				isempty = false;
+			}
+		}
+		if((isempty === false) || (header === 1 ? o.blankrows !== false : !!o.blankrows)) out[outi++] = row;
+	}
+	out.length = outi;
+	return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.sheet_to_csv" id="apidoc.element.j.XLSX.utils.sheet_to_csv">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>sheet_to_csv
+        <span class="apidocSignatureSpan">(sheet, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sheet_to_csv(sheet, opts) {
+	var out = &#x22;&#x22;, txt = &#x22;&#x22;, qreg = /&#x22;/g;
+	var o = opts == null ? {} : opts;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return &#x22;&#x22;;
+	var r = safe_decode_range(sheet[&#x22;!ref&#x22;]);
+	var FS = o.FS !== undefined ? o.FS : &#x22;,&#x22;, fs = FS.charCodeAt(0);
+	var RS = o.RS !== undefined ? o.RS : &#x22;\n&#x22;, rs = RS.charCodeAt(0);
+	var endregex = new RegExp((FS==&#x22;|&#x22; ? &#x22;\\|&#x22; : FS)+&#x22;+$&#x22;);
+	var row = &#x22;&#x22;, rr = &#x22;&#x22;, cols = [];
+	var i = 0, cc = 0, val;
+	var R = 0, C = 0;
+	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
+	for(R = r.s.r; R &#x3c;= r.e.r; ++R) {
+		var isempty = true;
+		row = &#x22;&#x22;;
+		rr = encode_row(R);
+		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			val = sheet[cols[C] + rr];
+			if(val == null) txt = &#x22;&#x22;;
+			else if(val.v != null) {
+				isempty = false;
+				txt = &#x27;&#x27;+format_cell(val, null, o);
+				for(i = 0, cc = 0; i !== txt.length; ++i) if((cc = txt.charCodeAt(i)) === fs || cc === rs || cc === 34) {
+					txt = &#x22;\&#x22;&#x22; + txt.replace(qreg, &#x27;&#x22;&#x22;&#x27;) + &#x22;\&#x22;&#x22;; break; }
+			} else if(val.f != null &#x26;&#x26; !val.F) {
+				isempty = false;
+				txt = &#x27;=&#x27; + val.f; if(txt.indexOf(&#x22;,&#x22;) &#x3e;= 0) txt = &#x27;&#x22;&#x27; + txt.replace(qreg, &#x27;&#x22;&#x22;&#x27;) + &#x27;&#x22;&#x27;;
+			} else txt = &#x22;&#x22;;
+			<span class="apidocCodeCommentSpan">/* NOTE: Excel CSV does not support array formulae */
+</span>			row += (C === r.s.c ? &#x22;&#x22; : FS) + txt;
+		}
+		if(o.blankrows === false &#x26;&#x26; isempty) continue;
+		if(o.strip) row = row.replace(endregex,&#x22;&#x22;);
+		out += row + RS;
+	}
+	return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.sheet_to_formulae" id="apidoc.element.j.XLSX.utils.sheet_to_formulae">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>sheet_to_formulae
+        <span class="apidocSignatureSpan">(sheet)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sheet_to_formulae(sheet) {
+	var y = &#x22;&#x22;, x, val=&#x22;&#x22;;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	var r = safe_decode_range(sheet[&#x27;!ref&#x27;]), rr = &#x22;&#x22;, cols = [], C;
+	var cmds = new Array((r.e.r-r.s.r+1)*(r.e.c-r.s.c+1));
+	var i = 0;
+	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
+	for(var R = r.s.r; R &#x3c;= r.e.r; ++R) {
+		rr = encode_row(R);
+		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			y = cols[C] + rr;
+			x = sheet[y];
+			val = &#x22;&#x22;;
+			if(x === undefined) continue;
+			else if(x.F != null) {
+				y = x.F;
+				if(!x.f) continue;
+				val = x.f;
+				if(y.indexOf(&#x22;:&#x22;) == -1) y = y + &#x22;:&#x22; + y;
+			}
+			if(x.f != null) val = x.f;
+			else if(x.t == &#x27;z&#x27;) continue;
+			else if(x.t == &#x27;n&#x27; &#x26;&#x26; x.v != null) val = &#x22;&#x22; + x.v;
+			else if(x.t == &#x27;b&#x27;) val = x.v ? &#x22;TRUE&#x22; : &#x22;FALSE&#x22;;
+			else if(x.w !== undefined) val = &#x22;&#x27;&#x22; + x.w;
+			else if(x.v === undefined) continue;
+			else if(x.t == &#x27;s&#x27;) val = &#x22;&#x27;&#x22; + x.v;
+			else val = &#x22;&#x22;+x.v;
+			cmds[i++] = y + &#x22;=&#x22; + val;
+		}
+	}
+	cmds.length = i;
+	return cmds;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.sheet_to_json" id="apidoc.element.j.XLSX.utils.sheet_to_json">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>sheet_to_json
+        <span class="apidocSignatureSpan">(sheet, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sheet_to_json(sheet, opts){
+	var val, row, range, header = 0, offset = 1, r, hdr = [], isempty, R, C, v, vv;
+	var o = opts != null ? opts : {};
+	var raw = o.raw;
+	var defval = o.defval;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
+	if(o.header === 1) header = 1;
+	else if(o.header === &#x22;A&#x22;) header = 2;
+	else if(Array.isArray(o.header)) header = 3;
+	switch(typeof range) {
+		case &#x27;string&#x27;: r = safe_decode_range(range); break;
+		case &#x27;number&#x27;: r = safe_decode_range(sheet[&#x22;!ref&#x22;]); r.s.r = range; break;
+		default: r = range;
+	}
+	if(header &#x3e; 0) offset = 0;
+	var rr = encode_row(r.s.r);
+	var cols = new Array(r.e.c-r.s.c+1);
+	var out = new Array(r.e.r-r.s.r-offset+1);
+	var outi = 0;
+	for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
+		cols[C] = encode_col(C);
+		val = sheet[cols[C] + rr];
+		switch(header) {
+			case 1: hdr[C] = C; break;
+			case 2: hdr[C] = cols[C]; break;
+			case 3: hdr[C] = o.header[C - r.s.c]; break;
+			default:
+				if(val == null) continue;
+				vv = v = format_cell(val, null, o);
+				var counter = 0;
+				for(var CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
+				hdr[C] = vv;
+		}
+	}
+
+	for (R = r.s.r + offset; R &#x3c;= r.e.r; ++R) {
+		rr = encode_row(R);
+		isempty = true;
+		if(header === 1) row = [];
+		else {
+			row = {};
+			if(Object.defineProperty) try { Object.defineProperty(row, &#x27;__rowNum__&#x27;, {value:R, enumerable:false}); } catch(e) { row.__rowNum__
+ = R; }
+			else row.__rowNum__ = R;
+		}
+		for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			val = sheet[cols[C] + rr];
+			if(val === undefined || val.t === undefined) {
+				if(defval === undefined) continue;
+				if(hdr[C] != null) { row[hdr[C]] = defval; isempty = false; }
+				continue;
+			}
+			v = val.v;
+			switch(val.t){
+				case &#x27;z&#x27;: if(v == null) break; continue;
+				case &#x27;e&#x27;: continue;
+				case &#x27;s&#x27;: case &#x27;d&#x27;: case &#x27;b&#x27;: case &#x27;n&#x27;: break;
+				default: throw new Error(&#x27;unrecognized type &#x27; + val.t);
+			}
+			if(hdr[C] != null) {
+				if(v == null) {
+					if(defval !== undefined) row[hdr[C]] = defval;
+					else if(raw &#x26;&#x26; v === null) row[hdr[C]] = null;
+					else continue;
+				} else {
+					row[hdr[C]] = raw ? v : format_cell(val,v,o);
+				}
+				isempty = false;
+			}
+		}
+		if((isempty === false) || (header === 1 ? o.blankrows !== false : !!o.blankrows)) out[outi++] = row;
+	}
+	out.length = outi;
+	return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.sheet_to_row_object_array" id="apidoc.element.j.XLSX.utils.sheet_to_row_object_array">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>sheet_to_row_object_array
+        <span class="apidocSignatureSpan">(sheet, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sheet_to_json(sheet, opts){
+	var val, row, range, header = 0, offset = 1, r, hdr = [], isempty, R, C, v, vv;
+	var o = opts != null ? opts : {};
+	var raw = o.raw;
+	var defval = o.defval;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
+	if(o.header === 1) header = 1;
+	else if(o.header === &#x22;A&#x22;) header = 2;
+	else if(Array.isArray(o.header)) header = 3;
+	switch(typeof range) {
+		case &#x27;string&#x27;: r = safe_decode_range(range); break;
+		case &#x27;number&#x27;: r = safe_decode_range(sheet[&#x22;!ref&#x22;]); r.s.r = range; break;
+		default: r = range;
+	}
+	if(header &#x3e; 0) offset = 0;
+	var rr = encode_row(r.s.r);
+	var cols = new Array(r.e.c-r.s.c+1);
+	var out = new Array(r.e.r-r.s.r-offset+1);
+	var outi = 0;
+	for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
+		cols[C] = encode_col(C);
+		val = sheet[cols[C] + rr];
+		switch(header) {
+			case 1: hdr[C] = C; break;
+			case 2: hdr[C] = cols[C]; break;
+			case 3: hdr[C] = o.header[C - r.s.c]; break;
+			default:
+				if(val == null) continue;
+				vv = v = format_cell(val, null, o);
+				var counter = 0;
+				for(var CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
+				hdr[C] = vv;
+		}
+	}
+
+	for (R = r.s.r + offset; R &#x3c;= r.e.r; ++R) {
+		rr = encode_row(R);
+		isempty = true;
+		if(header === 1) row = [];
+		else {
+			row = {};
+			if(Object.defineProperty) try { Object.defineProperty(row, &#x27;__rowNum__&#x27;, {value:R, enumerable:false}); } catch(e) { row.__rowNum__
+ = R; }
+			else row.__rowNum__ = R;
+		}
+		for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			val = sheet[cols[C] + rr];
+			if(val === undefined || val.t === undefined) {
+				if(defval === undefined) continue;
+				if(hdr[C] != null) { row[hdr[C]] = defval; isempty = false; }
+				continue;
+			}
+			v = val.v;
+			switch(val.t){
+				case &#x27;z&#x27;: if(v == null) break; continue;
+				case &#x27;e&#x27;: continue;
+				case &#x27;s&#x27;: case &#x27;d&#x27;: case &#x27;b&#x27;: case &#x27;n&#x27;: break;
+				default: throw new Error(&#x27;unrecognized type &#x27; + val.t);
+			}
+			if(hdr[C] != null) {
+				if(v == null) {
+					if(defval !== undefined) row[hdr[C]] = defval;
+					else if(raw &#x26;&#x26; v === null) row[hdr[C]] = null;
+					else continue;
+				} else {
+					row[hdr[C]] = raw ? v : format_cell(val,v,o);
+				}
+				isempty = false;
+			}
+		}
+		if((isempty === false) || (header === 1 ? o.blankrows !== false : !!o.blankrows)) out[outi++] = row;
+	}
+	out.length = outi;
+	return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.split_cell" id="apidoc.element.j.XLSX.utils.split_cell">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>split_cell
+        <span class="apidocSignatureSpan">(cstr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function split_cell(cstr) { return cstr.replace(/(\$?[A-Z]*)(\$?\d*)/,&#x22;$1,$2&#x22;).split(&#x22;,&#x22;); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.table_to_book" id="apidoc.element.j.XLSX.utils.table_to_book">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>table_to_book
+        <span class="apidocSignatureSpan">(table, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function table_to_book(table, opts) {
+	return sheet_to_workbook(parse_dom_table(table, opts), opts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.utils.table_to_sheet" id="apidoc.element.j.XLSX.utils.table_to_sheet">
+        function <span class="apidocSignatureSpan">j.XLSX.utils.</span>table_to_sheet
+        <span class="apidocSignatureSpan">(table, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse_dom_table(table, opts) {
+	var ws = ({});
+	var rows = table.getElementsByTagName(&#x27;tr&#x27;);
+	var range = {s:{r:0,c:0},e:{r:rows.length - 1,c:0}};
+	var merges = [], midx = 0;
+	var R = 0, _C = 0, C = 0, RS = 0, CS = 0;
+	for(; R &#x3c; rows.length; ++R) {
+		var row = rows[R];
+		var elts = row.children;
+		for(_C = C = 0; _C &#x3c; elts.length; ++_C) {
+			var elt = elts[_C], v = elts[_C].innerText;
+			for(midx = 0; midx &#x3c; merges.length; ++midx) {
+				var m = merges[midx];
+				if(m.s.c == C &#x26;&#x26; m.s.r &#x3c;= R &#x26;&#x26; R &#x3c;= m.e.r) { C = m.e.c+1; midx = -1; }
+			}
+			<span class="apidocCodeCommentSpan">/* TODO: figure out how to extract nonstandard mso- style */
+</span>			CS = +elt.getAttribute(&#x22;colspan&#x22;) || 1;
+			if((RS = +elt.getAttribute(&#x22;rowspan&#x22;))&#x3e;0) merges.push({s:{r:R,c:C},e:{r:R + RS - 1, c:C + CS - 1}});
+			var o = {t:&#x27;s&#x27;, v:v};
+			if(v != null &#x26;&#x26; v.length &#x26;&#x26; !isNaN(Number(v))) o = {t:&#x27;n&#x27;, v:Number(v)};
+			ws[encode_cell({c:C, r:R})] = o;
+			C += CS;
+		}
+	}
+	ws[&#x27;!merges&#x27;] = merges;
+	ws[&#x27;!ref&#x27;] = encode_range(range);
+	return ws;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.j.utils" id="apidoc.module.j.utils">module j.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.get_cols" id="apidoc.element.j.utils.get_cols">
+        function <span class="apidocSignatureSpan">j.utils.</span>get_cols
+        <span class="apidocSignatureSpan">(sheet, XL)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function get_cols(sheet, XL) {
+	var val, r, hdr, R, C, _XL = XL || XLS;
+	if(!_XL.utils.format_cell) _XL = XLSX;
+	hdr = [];
+	if(!sheet[&#x22;!ref&#x22;]) return hdr;
+	r = _XL.utils.decode_range(sheet[&#x22;!ref&#x22;]);
+	for (R = r.s.r, C = r.s.c; C &#x3c;= r.e.c; ++C) {
+		val = sheet[_XL.utils.encode_cell({c:C, r:R})];
+		if(val == null) continue;
+		hdr[C] = val.w !== undefined ? val.w : _XL.utils.format_cell ? _XL.utils.format_cell(val) : val.v;
+	}
+	return hdr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_biff2" id="apidoc.element.j.utils.to_biff2">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_biff2
+        <span class="apidocSignatureSpan">(w, o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_biff2 = function (w, o) {
+		o = o || {}; o.bookType = t;
+		if(o.bookSST === undefined) o.bookSST = true;
+		if(o.type === undefined) o.type = &#x27;buffer&#x27;;
+		return XLSX.write(w[1], o);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_csv" id="apidoc.element.j.utils.to_csv">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_csv
+        <span class="apidocSignatureSpan">(w, FS, RS)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function to_dsv(w, FS, RS) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.make_csv) XL = XLSX;
+	var result = {};
+	workbook.SheetNames.forEach(function(sheetName) {
+		var csv = XL.utils.make_csv(workbook.Sheets[sheetName], {FS:FS||&#x22;,&#x22;,RS:RS||&#x22;\n&#x22;});
+		if(csv.length &#x3e; 0) result[sheetName] = csv;
+	});
+	return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_dif" id="apidoc.element.j.utils.to_dif">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_dif
+        <span class="apidocSignatureSpan">(w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_dif = function (w) {
+		var workbook = w[1];
+		var result = {};
+		workbook.SheetNames.forEach(function(sheetName) {
+			var out = HARB.utils[&#x22;sheet_to_&#x22; + t](workbook.Sheets[sheetName]);
+			result[sheetName] = out;
+		});
+		return result;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_dsv" id="apidoc.element.j.utils.to_dsv">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_dsv
+        <span class="apidocSignatureSpan">(w, FS, RS)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function to_dsv(w, FS, RS) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.make_csv) XL = XLSX;
+	var result = {};
+	workbook.SheetNames.forEach(function(sheetName) {
+		var csv = XL.utils.make_csv(workbook.Sheets[sheetName], {FS:FS||&#x22;,&#x22;,RS:RS||&#x22;\n&#x22;});
+		if(csv.length &#x3e; 0) result[sheetName] = csv;
+	});
+	return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_fods" id="apidoc.element.j.utils.to_fods">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_fods
+        <span class="apidocSignatureSpan">(w, o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_fods = function (w, o) {
+		o = o || {}; o.bookType = t;
+		if(o.bookSST === undefined) o.bookSST = true;
+		if(o.type === undefined) o.type = &#x27;buffer&#x27;;
+		return XLSX.write(w[1], o);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_formulae" id="apidoc.element.j.utils.to_formulae">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_formulae
+        <span class="apidocSignatureSpan">(w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function to_formulae(w) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.get_formulae) XL = XLSX;
+	var result = {};
+	workbook.SheetNames.forEach(function(sheetName) {
+		var f = XL.utils.get_formulae(workbook.Sheets[sheetName]);
+		if(f.length &#x3e; 0) result[sheetName] = f;
+	});
+	return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_html" id="apidoc.element.j.utils.to_html">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_html
+        <span class="apidocSignatureSpan">(w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function to_html(w) {
+	var XL = w[0], wb = w[1];
+	if(!XL.utils.format_cell) XL = XLSX;
+	var tbl = {};
+	wb.SheetNames.forEach(function(sheet) {
+		var ws = wb.Sheets[sheet];
+		if(ws[&#x22;!ref&#x22;] == null) return;
+		var src = &#x22;&#x3c;h3&#x3e;&#x22; + sheet + &#x22;&#x3c;/h3&#x3e;&#x22;;
+		var range = XL.utils.decode_range(ws[&#x22;!ref&#x22;]);
+		src += &#x22;&#x3c;table&#x3e;&#x22;;
+		src += &#x22;&#x3c;colgroup span=\&#x22;&#x22; + (range.e.c - range.s.c + 1) + &#x22;\&#x22;&#x3e;&#x3c;/colgroup&#x3e;&#x22;;
+		for(var R = range.s.r; R &#x3c;= range.e.r; ++R) {
+			src += &#x22;&#x3c;tr&#x3e;&#x22;;
+			for(var C = range.s.c; C &#x3c;= range.e.c; ++C) {
+				var val = ws[XL.utils.encode_cell({c:C,r:R})];
+				var w = val == null ? &#x22;&#x22; : val.w !== undefined ? val.w : XL.utils.format_cell ? XL.utils.format_cell(val) : val.v;
+				src += &#x22;&#x3c;td&#x3e;&#x22; + w + &#x22;&#x3c;/td&#x3e;&#x22;;
+			}
+			src += &#x22;&#x3c;/tr&#x3e;&#x22;;
+		}
+		src += &#x22;&#x3c;/table&#x3e;&#x22;;
+		tbl[sheet] = src;
+	});
+	return tbl;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_html_cols" id="apidoc.element.j.utils.to_html_cols">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_html_cols
+        <span class="apidocSignatureSpan">(w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function to_html_cols(w) {
+	var XL = w[0], wb = w[1];
+	var json = to_json(w);
+	var tbl = {};
+	wb.SheetNames.forEach(function(sheet) {
+		var cols = get_cols(wb.Sheets[sheet], XL);
+		var src = &#x22;&#x3c;h3&#x3e;&#x22; + sheet + &#x22;&#x3c;/h3&#x3e;&#x22;;
+		src += &#x22;&#x3c;table&#x3e;&#x22;;
+		src += &#x22;&#x3c;thead&#x3e;&#x3c;tr&#x3e;&#x22;;
+		cols.forEach(function(c) { src += &#x22;&#x3c;th&#x3e;&#x22; + (c !== undefined ? c : &#x22;&#x22;) + &#x22;&#x3c;/th&#x3e;&#x22;; });
+		src += &#x22;&#x3c;/tr&#x3e;&#x3c;/thead&#x3e;&#x22;;
+		(json[sheet]||[]).forEach(function(row) {
+			src += &#x22;&#x3c;tr&#x3e;&#x22;;
+			cols.forEach(function(c) { src += &#x22;&#x3c;td&#x3e;&#x22; + (row[c] !== undefined ? row[c] : &#x22;&#x22;) + &#x22;&#x3c;/td&#x3e;&#x22;; });
+			src += &#x22;&#x3c;/tr&#x3e;&#x22;;
+		});
+		src += &#x22;&#x3c;/table&#x3e;&#x22;;
+		tbl[sheet] = src;
+	});
+	return tbl;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_json" id="apidoc.element.j.utils.to_json">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_json
+        <span class="apidocSignatureSpan">(w, raw)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function to_json(w, raw) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.sheet_to_row_object_array) XL = XLSX;
+	var result = {};
+	workbook.SheetNames.forEach(function(sheetName) {
+		var roa = XL.utils.sheet_to_row_object_array(workbook.Sheets[sheetName], typeof raw == &#x22;object&#x22; ? raw : {raw:raw});
+		if(roa.length &#x3e; 0) result[sheetName] = roa;
+	});
+	return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_md" id="apidoc.element.j.utils.to_md">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_md
+        <span class="apidocSignatureSpan">(w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function to_md(w) {
+	var XL = w[0], wb = w[1];
+	if(!XL.utils.format_cell) XL = XLSX;
+	var tbl = {};
+	wb.SheetNames.forEach(function(sheet) {
+		var ws = wb.Sheets[sheet];
+		if(ws[&#x22;!ref&#x22;] == null) return;
+		var src = &#x22;|&#x22;, val, w;
+		var range = XL.utils.decode_range(ws[&#x22;!ref&#x22;]);
+		var R = range.s.r, C;
+		for(C = range.s.c; C &#x3c;= range.e.c; ++C) {
+			val = ws[XL.utils.encode_cell({c:C,r:R})];
+			w = val == null ? &#x22;&#x22; : val.w !== undefined ? val.w : XL.utils.format_cell ? XL.utils.format_cell(val) : val.v;
+			src += w + &#x22;|&#x22;;
+		}
+		src += &#x22;\n|&#x22;;
+		for(C = range.s.c; C &#x3c;= range.e.c; ++C) {
+			val = ws[XL.utils.encode_cell({c:C,r:R})];
+			w = val == null ? &#x22;&#x22; : val.w !== undefined ? val.w : XL.utils.format_cell ? XL.utils.format_cell(val) : val.v;
+			src += &#x22; ---- |&#x22;;
+		}
+		src += &#x22;\n&#x22;;
+		for(R = range.s.r+1; R &#x3c;= range.e.r; ++R) {
+			src += &#x22;|&#x22;;
+			for(C = range.s.c; C &#x3c;= range.e.c; ++C) {
+				val = ws[XL.utils.encode_cell({c:C,r:R})];
+				w = val == null ? &#x22;&#x22; : val.w !== undefined ? val.w : XL.utils.format_cell ? XL.utils.format_cell(val) : val.v;
+				src += w + &#x22;|&#x22;;
+			}
+			src += &#x22;\n&#x22;;
+		}
+		tbl[sheet] = src;
+	});
+	return tbl;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_ods" id="apidoc.element.j.utils.to_ods">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_ods
+        <span class="apidocSignatureSpan">(w, o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_ods = function (w, o) {
+		o = o || {}; o.bookType = t;
+		if(o.bookSST === undefined) o.bookSST = true;
+		if(o.type === undefined) o.type = &#x27;buffer&#x27;;
+		return XLSX.write(w[1], o);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_socialcalc" id="apidoc.element.j.utils.to_socialcalc">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_socialcalc
+        <span class="apidocSignatureSpan">(w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_socialcalc = function (w) {
+		var workbook = w[1];
+		var result = {};
+		workbook.SheetNames.forEach(function(sheetName) {
+			var out = HARB.utils[&#x22;sheet_to_&#x22; + t](workbook.Sheets[sheetName]);
+			result[sheetName] = out;
+		});
+		return result;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_sylk" id="apidoc.element.j.utils.to_sylk">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_sylk
+        <span class="apidocSignatureSpan">(w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_sylk = function (w) {
+		var workbook = w[1];
+		var result = {};
+		workbook.SheetNames.forEach(function(sheetName) {
+			var out = HARB.utils[&#x22;sheet_to_&#x22; + t](workbook.Sheets[sheetName]);
+			result[sheetName] = out;
+		});
+		return result;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_xlsb" id="apidoc.element.j.utils.to_xlsb">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_xlsb
+        <span class="apidocSignatureSpan">(w, o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_xlsb = function (w, o) {
+		o = o || {}; o.bookType = t;
+		if(o.bookSST === undefined) o.bookSST = true;
+		if(o.type === undefined) o.type = &#x27;buffer&#x27;;
+		return XLSX.write(w[1], o);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_xlsm" id="apidoc.element.j.utils.to_xlsm">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_xlsm
+        <span class="apidocSignatureSpan">(w, o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_xlsm = function (w, o) {
+		o = o || {}; o.bookType = t;
+		if(o.bookSST === undefined) o.bookSST = true;
+		if(o.type === undefined) o.type = &#x27;buffer&#x27;;
+		return XLSX.write(w[1], o);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_xlsx" id="apidoc.element.j.utils.to_xlsx">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_xlsx
+        <span class="apidocSignatureSpan">(w, o)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_xlsx = function (w, o) {
+		o = o || {}; o.bookType = t;
+		if(o.bookSST === undefined) o.bookSST = true;
+		if(o.type === undefined) o.type = &#x27;buffer&#x27;;
+		return XLSX.write(w[1], o);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.utils.to_xml" id="apidoc.element.j.utils.to_xml">
+        function <span class="apidocSignatureSpan">j.utils.</span>to_xml
+        <span class="apidocSignatureSpan">(w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function to_xml(w) {
+	var json = to_json(w);
+	var lst = {};
+	w[1].SheetNames.forEach(function(sheet) {
+		var js = json[sheet], s = sheet.replace(cleanregex,&#x22;&#x22;).replace(/^([0-9])/,&#x22;_$1&#x22;);
+		var xml = &#x22;&#x22;;
+		xml += &#x22;&#x3c;&#x22; + s + &#x22;&#x3e;&#x22;;
+		(js||[]).forEach(function(r) {
+			xml += &#x22;&#x3c;&#x22; + s + &#x22;Data&#x3e;&#x22;;
+			for(var y in r) if(r.hasOwnProperty(y)) xml += &#x22;&#x3c;&#x22; + y.replace(cleanregex,&#x22;&#x22;).replace(/^([0-9])/,&#x22;_$1&#x22;) + &#x22;&#x3e;&#x22; + escapexml(r[y
+]) + &#x22;&#x3c;/&#x22; +  y.replace(cleanregex,&#x22;&#x22;).replace(/^([0-9])/,&#x22;_$1&#x22;) + &#x22;&#x3e;&#x22;;
+			xml += &#x22;&#x3c;/&#x22; + s + &#x22;Data&#x3e;&#x22;;
+		});
+		xml += &#x22;&#x3c;/&#x22; + s + &#x22;&#x3e;&#x22;;
+		lst[sheet] = xml;
+	});
+	return lst;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
