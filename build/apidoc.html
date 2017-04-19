@@ -81,6 +81,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>j</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>XLS</span>
 
         </li>
@@ -100,6 +106,12 @@
         <li>
 
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>XLSX.SSF</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.</span>XLSX.stream</span>
 
         </li>
 
@@ -242,6 +254,12 @@
         <li>
 
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.XLSX.</span>SSF</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.XLSX.</span>stream</span>
 
         </li>
 
@@ -409,6 +427,28 @@
         <li>
 
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">j.XLSX.SSF.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.j.XLSX.stream">module j.XLSX.stream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.stream.to_csv">
+            function <span class="apidocSignatureSpan">j.XLSX.stream.</span>to_csv
+            <span class="apidocSignatureSpan">(sheet, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.stream.to_html">
+            function <span class="apidocSignatureSpan">j.XLSX.stream.</span>to_html
+            <span class="apidocSignatureSpan">(sheet, opts)</span>
+            </a>
 
         </li>
 
@@ -600,8 +640,54 @@
 
             <a class="apidocElementLiA" href="#apidoc.element.j.XLSX.utils.table_to_sheet">
             function <span class="apidocSignatureSpan">j.XLSX.utils.</span>table_to_sheet
-            <span class="apidocSignatureSpan">(table, opts)</span>
+            <span class="apidocSignatureSpan">(table, _opts)</span>
             </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.j.j">module j.j</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.j.read">
+            function <span class="apidocSignatureSpan">j.j.</span>read
+            <span class="apidocSignatureSpan">(data, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.j.j.readFile">
+            function <span class="apidocSignatureSpan">j.j.</span>readFile
+            <span class="apidocSignatureSpan">(filename, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.j.</span>XLS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.j.</span>XLSX</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">j.j.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">j.j.</span>version</span>
 
         </li>
 
@@ -790,7 +876,23 @@
 	if(is_xlsx(data)) return [XLSX, XLSX.read(data, options)];
 	else return [HARB, HARB.read(data.toString(), options)];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var readFileSync = function(filename, options) {
+	var f = fs.readFileSync(filename);
+	if(is_xlsx(f)) return [XLSX, XLSX.readFile(filename, options)];
+	else return [HARB, HARB.readFile(filename, options)];
+};
+
+var read = function(data, options) {
+	if(is_xlsx(data)) return [XLSX, XLSX.<span class="apidocCodeKeywordSpan">read</span>(data, options)];
+	else return [HARB, HARB.read(data.toString(), options)];
+};
+
+function to_formulae(w) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.get_formulae) XL = XLSX;
+	var result = {};
+...</pre></li>
     </ul>
 
 
@@ -825,6 +927,10 @@ is the parsed file.
 |:---------------------------------------------------------|:------------------|
 ...</pre></li>
     </ul>
+
+
+
+
 
 
 
@@ -910,6 +1016,10 @@ if(CompObj) CompObjP = parse_compobj(CompObj);
 if(options.bookProps &#x26;&#x26; !options.bookSheets) WorkbookP = ({});
 else {
 	if(Workbook) WorkbookP = parse_workbook(Workbook.content, options, !!Workbook.find);
+	<span class="apidocCodeCommentSpan">/* Quattro Pro 7-8 */
+</span>	else if(cfb.find(&#x27;PerfectOffice_MAIN&#x27;)) WorkbookP = WK_.to_workbook(cfb.find(&#x27;PerfectOffice_MAIN&#x27;).content, options);
+	/* Quattro Pro 9 */
+	else if(cfb.find(&#x27;NativeContent_MAIN&#x27;)) WorkbookP = WK_.to_workbook(cfb.find(&#x27;NativeContent_MAIN&#x27;).content, options);
 	else throw new Error(&#x22;Cannot find Workbook stream&#x22;);
 }
 
@@ -918,8 +1028,8 @@ if(cfb.FullPaths) parse_props(cfb);
 var props = {};
 for(var y in cfb.Summary) props[y] = cfb.Summary[y];
 for(y in cfb.DocSummary) props[y] = cfb.DocSummary[y];
-WorkbookP.Props = WorkbookP.Custprops = props;<span class="apidocCodeCommentSpan"> /* TODO: split up properties */
-</span>if(options.bookFiles) WorkbookP.cfb = cfb;
+WorkbookP.Props = WorkbookP.Custprops = props; /* TODO: split up properties */
+if(options.bookFiles) WorkbookP.cfb = cfb;
 /*WorkbookP.CompObjP = CompObjP; // TODO: storage? */
 return WorkbookP;
 }</pre></li>
@@ -1013,14 +1123,14 @@ return WorkbookP;
 	var sheetRels = ({});
 	var path, relsPath;
 
-	//if(!props.Worksheets) {
+	{
 		var wbsheets = wb.Sheets;
 		props.Worksheets = wbsheets.length;
 		props.SheetNames = [];
 		for(var j = 0; j != wbsheets.length; ++j) {
 			props.SheetNames[j] = wbsheets[j].name;
 		}
-	//}
+	}
 
 	var wbext = xlsb ? &#x22;bin&#x22; : &#x22;xml&#x22;;
 	var wbrelsfile = &#x27;xl/_rels/workbook.&#x27; + wbext + &#x27;.rels&#x27;;
@@ -1061,7 +1171,7 @@ return WorkbookP;
 		out.files = zip.files;
 	}
 	if(opts.bookVBA) {
-		if ...</pre></li>
+		if(dir.vba.length &#x3e; 0) out.v ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -1080,7 +1190,7 @@ return WorkbookP;
 	if(!o.type) o.type = (has_buf &#x26;&#x26; Buffer.isBuffer(data)) ? &#x22;buffer&#x22; : &#x22;base64&#x22;;
 	if(o.type == &#x22;file&#x22;) { o.type = &#x22;buffer&#x22;; d = _fs.readFileSync(data); }
 	switch((n = firstbyte(d, o))[0]) {
-		case 0xD0: return parse_xlscfb(CFB.read(d, o), o);
+		case 0xD0: return read_cfb(CFB.read(d, o), o);
 		case 0x09: return parse_xlscfb(s2a(o.type === &#x27;base64&#x27; ? Base64.decode(d) : d), o);
 		case 0x3C: return parse_xlml(d, o);
 		case 0x49: if(n[1] == 0x44) return SYLK.to_workbook(d, o); break;
@@ -1088,13 +1198,30 @@ return WorkbookP;
 		case 0x50: if(n[1] == 0x4B &#x26;&#x26; n[2] &#x3c; 0x20 &#x26;&#x26; n[3] &#x3c; 0x20) return read_zip(d, o); break;
 		case 0xEF: return parse_xlml(d, o);
 		case 0xFF: if(n[1] == 0xFE){ return read_utf16(d, o); } break;
+		case 0x00: if(n[1] == 0x00 &#x26;&#x26; n[2] &#x3e;= 0x02 &#x26;&#x26; n[3] == 0x00) return WK_.to_workbook(d, o); break;
 		case 0x03: case 0x83: case 0x8B: return DBF.to_workbook(d, o);
 	}
 	if(n[2] &#x3c;= 12 &#x26;&#x26; n[3] &#x3c;= 31) return DBF.to_workbook(d, o);
 	if(0x20&#x3e;n[0]||n[0]&#x3e;0x7F) throw new Error(&#x22;Unsupported file &#x22; + n.join(&#x22;|&#x22;));
 	return PRN.to_workbook(d, o);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var readFileSync = function(filename, options) {
+	var f = fs.readFileSync(filename);
+	if(is_xlsx(f)) return [XLSX, XLSX.readFile(filename, options)];
+	else return [HARB, HARB.readFile(filename, options)];
+};
+
+var read = function(data, options) {
+	if(is_xlsx(data)) return [XLSX, XLSX.<span class="apidocCodeKeywordSpan">read</span>(data, options)];
+	else return [HARB, HARB.read(data.toString(), options)];
+};
+
+function to_formulae(w) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.get_formulae) XL = XLSX;
+	var result = {};
+...</pre></li>
     </ul>
 
 
@@ -1142,7 +1269,23 @@ is the parsed file.
 	var o = opts||{}; o.type = &#x27;file&#x27;;
 	return readSync(filename, o);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		/* Zip container or plaintext */
+		case 0x50: return (d[1] == 0x4b &#x26;&#x26; d[2] &#x3c;= 0x10 &#x26;&#x26; d[3] &#x3c;= 0x10);
+		/* Unknown */
+		default: return false;
+	}
+}
+var readFileSync = function(filename, options) {
+	var f = fs.<span class="apidocCodeKeywordSpan">readFileSync</span>(filename);
+	if(is_xlsx(f)) return [XLSX, XLSX.readFile(filename, options)];
+	else return [HARB, HARB.readFile(filename, options)];
+};
+
+var read = function(data, options) {
+	if(is_xlsx(data)) return [XLSX, XLSX.read(data, options)];
+	else return [HARB, HARB.read(data.toString(), options)];
+...</pre></li>
     </ul>
 
 
@@ -1162,6 +1305,7 @@ is the parsed file.
 		case &#x27;xlml&#x27;: return write_string_type(write_xlml(wb, o), o);
 		case &#x27;slk&#x27;:
 		case &#x27;sylk&#x27;: return write_string_type(write_slk_str(wb, o), o);
+		case &#x27;html&#x27;: return write_string_type(write_htm_str(wb, o), o);
 		case &#x27;txt&#x27;: return write_bstr_type(write_txt_str(wb, o), o);
 		case &#x27;csv&#x27;: return write_string_type(write_csv_str(wb, o), o);
 		case &#x27;dif&#x27;: return write_string_type(write_dif_str(wb, o), o);
@@ -1175,7 +1319,23 @@ is the parsed file.
 		default: throw new Error (&#x22;Unrecognized bookType |&#x22; + o.bookType + &#x22;|&#x22;);
 	}
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+function to_xlsx_factory(t) {
+	return function(w, o) {
+		o = o || {}; o.bookType = t;
+		if(o.bookSST === undefined) o.bookSST = true;
+		if(o.type === undefined) o.type = &#x27;buffer&#x27;;
+		return XLSX.<span class="apidocCodeKeywordSpan">write</span>(w[1], o);
+	};
+}
+
+var to_xlsx = to_xlsx_factory(&#x27;xlsx&#x27;);
+var to_xlsm = to_xlsx_factory(&#x27;xlsm&#x27;);
+var to_xlsb = to_xlsx_factory(&#x27;xlsb&#x27;);
+var to_ods = to_xlsx_factory(&#x27;ods&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -1275,6 +1435,8 @@ var zip = new jszip();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
+
+
 
 
 
@@ -1418,7 +1580,23 @@ return {
 	}
 	return parse(blob);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var readFileSync = function(filename, options) {
+	var f = fs.readFileSync(filename);
+	if(is_xlsx(f)) return [XLSX, XLSX.readFile(filename, options)];
+	else return [HARB, HARB.readFile(filename, options)];
+};
+
+var read = function(data, options) {
+	if(is_xlsx(data)) return [XLSX, XLSX.<span class="apidocCodeKeywordSpan">read</span>(data, options)];
+	else return [HARB, HARB.read(data.toString(), options)];
+};
+
+function to_formulae(w) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.get_formulae) XL = XLSX;
+	var result = {};
+...</pre></li>
     </ul>
 
 
@@ -1784,6 +1962,84 @@ return {
 </div>
 
 <div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.j.XLSX.stream" id="apidoc.module.j.XLSX.stream">module j.XLSX.stream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.stream.to_csv" id="apidoc.element.j.XLSX.stream.to_csv">
+        function <span class="apidocSignatureSpan">j.XLSX.stream.</span>to_csv
+        <span class="apidocSignatureSpan">(sheet, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_csv = function (sheet, opts) {
+		var stream = Readable();
+		var out = &#x22;&#x22;;
+		var o = opts == null ? {} : opts;
+		if(sheet == null || sheet[&#x22;!ref&#x22;] == null) { stream.push(null); return stream; }
+		var r = safe_decode_range(sheet[&#x22;!ref&#x22;]);
+		var FS = o.FS !== undefined ? o.FS : &#x22;,&#x22;, fs = FS.charCodeAt(0);
+		var RS = o.RS !== undefined ? o.RS : &#x22;\n&#x22;, rs = RS.charCodeAt(0);
+		var endregex = new RegExp((FS==&#x22;|&#x22; ? &#x22;\\|&#x22; : FS)+&#x22;+$&#x22;);
+		var row = &#x22;&#x22;, cols = [];
+		o.dense = Array.isArray(sheet);
+		for(var C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
+		var R = r.s.r;
+		stream._read = function() {
+			if(R &#x3e; r.e.r) return stream.push(null);
+			while(R &#x3c;= r.e.r) {
+				row = make_csv_row(sheet, r, R, cols, fs, rs, FS, o);
+				if(row == null) { ++R; continue; }
+				if(o.strip) row = row.replace(endregex,&#x22;&#x22;);
+				stream.push(row + RS);
+				++R;
+				break;
+			}
+		};
+		return stream;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.XLSX.stream.to_html" id="apidoc.element.j.XLSX.stream.to_html">
+        function <span class="apidocSignatureSpan">j.XLSX.stream.</span>to_html
+        <span class="apidocSignatureSpan">(sheet, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to_html = function (sheet, opts) {
+		var stream = Readable();
+
+		var o = [];
+		var r = decode_range(sheet[&#x27;!ref&#x27;]), cell;
+		o.dense = Array.isArray(sheet);
+		stream.push(HTML_BEGIN);
+
+		var R = r.s.r;
+		var end = false;
+		stream._read = function() {
+			if(R &#x3e; r.e.r) {
+				if(!end) { end = true; stream.push(HTML_END); }
+				return stream.push(null);
+			}
+			while(R &#x3c;= r.e.r) {
+				stream.push(HTML_._row(sheet, r, R, o));
+				++R;
+				break;
+			}
+		};
+		return stream;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.j.XLSX.utils" id="apidoc.module.j.XLSX.utils">module j.XLSX.utils</a></h1>
 
 
@@ -1796,7 +2052,8 @@ return {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function aoa_to_sheet(data, opts) {
 	var o = opts || {};
-	var ws = ({});
+	if(DENSE != null &#x26;&#x26; o.dense == null) o.dense = DENSE;
+	var ws = o.dense ? ([]) : ({});
 	var range = ({s: {c:10000000, r:10000000}, e: {c:0, r:0}});
 	for(var R = 0; R != data.length; ++R) {
 		for(var C = 0; C != data[R].length; ++C) {
@@ -1806,7 +2063,6 @@ return {
 			if(range.s.c &#x3e; C) range.s.c = C;
 			if(range.e.r &#x3c; R) range.e.r = R;
 			if(range.e.c &#x3c; C) range.e.c = C;
-			var cell_ref = encode_cell(({c:C,r:R}));
 			if(cell.v === null) { if(!o.cellStubs) continue; cell.t = &#x27;z&#x27;; }
 			else if(typeof cell.v === &#x27;number&#x27;) cell.t = &#x27;n&#x27;;
 			else if(typeof cell.v === &#x27;boolean&#x27;) cell.t = &#x27;b&#x27;;
@@ -1816,7 +2072,13 @@ return {
 				else { cell.t = &#x27;n&#x27;; cell.v = datenum(cell.v); cell.w = SSF.format(cell.z, cell.v); }
 			}
 			else cell.t = &#x27;s&#x27;;
-			ws[cell_ref] = cell;
+			if(o.dense) {
+				if(!ws[R]) ws[R] = [];
+				ws[R][C] = cell;
+			} else {
+				var cell_ref = encode_cell(({c:C,r:R}));
+				ws[cell_ref] = cell;
+			}
 		}
 	}
 	if(range.s.c &#x3c; 10000000) ws[&#x27;!ref&#x27;] = encode_range(range);
@@ -1862,7 +2124,23 @@ return {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function decode_range(range) { var x =range.split(&#x22;:&#x22;).map(decode_cell); return {s:x[0],e:x[x.length-1]}; }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+function get_cols(sheet, XL) {
+	var val, r, hdr, R, C, _XL = XL || XLS;
+	if(!_XL.utils.format_cell) _XL = XLSX;
+	hdr = [];
+	if(!sheet[&#x22;!ref&#x22;]) return hdr;
+	r = _XL.utils.<span class="apidocCodeKeywordSpan">decode_range</span>(sheet[&#x22;!ref&#x22;]);
+	for (R = r.s.r, C = r.s.c; C &#x3c;= r.e.c; ++C) {
+		val = sheet[_XL.utils.encode_cell({c:C, r:R})];
+		if(val == null) continue;
+		hdr[C] = val.w !== undefined ? val.w : _XL.utils.format_cell ? _XL.utils.format_cell(val) : val.v;
+	}
+	return hdr;
+}
+...</pre></li>
     </ul>
 
 
@@ -1888,7 +2166,23 @@ return {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function encode_cell(cell) { return encode_col(cell.c) + encode_row(cell.r); }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function get_cols(sheet, XL) {
+	var val, r, hdr, R, C, _XL = XL || XLS;
+	if(!_XL.utils.format_cell) _XL = XLSX;
+	hdr = [];
+	if(!sheet[&#x22;!ref&#x22;]) return hdr;
+	r = _XL.utils.decode_range(sheet[&#x22;!ref&#x22;]);
+	for (R = r.s.r, C = r.s.c; C &#x3c;= r.e.c; ++C) {
+		val = sheet[_XL.utils.<span class="apidocCodeKeywordSpan">encode_cell</span>({c:C, r:R})];
+		if(val == null) continue;
+		hdr[C] = val.w !== undefined ? val.w : _XL.utils.format_cell ? _XL.utils.format_cell(val) : val.v;
+	}
+	return hdr;
+}
+
+function to_md(w) {
+...</pre></li>
     </ul>
 
 
@@ -1954,7 +2248,24 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	if(v == undefined) return safe_format_cell(cell, cell.v, o);
 	return safe_format_cell(cell, v, o);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	if(!_XL.utils.format_cell) _XL = XLSX;
+	hdr = [];
+	if(!sheet[&#x22;!ref&#x22;]) return hdr;
+	r = _XL.utils.decode_range(sheet[&#x22;!ref&#x22;]);
+	for (R = r.s.r, C = r.s.c; C &#x3c;= r.e.c; ++C) {
+		val = sheet[_XL.utils.encode_cell({c:C, r:R})];
+		if(val == null) continue;
+		hdr[C] = val.w !== undefined ? val.w : _XL.utils.format_cell ? _XL.utils.<span class="apidocCodeKeywordSpan">format_cell</span
+>(val) : val.v;
+	}
+	return hdr;
+}
+
+function to_md(w) {
+	var XL = w[0], wb = w[1];
+	if(!XL.utils.format_cell) XL = XLSX;
+...</pre></li>
     </ul>
 
 
@@ -1972,12 +2283,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	var r = safe_decode_range(sheet[&#x27;!ref&#x27;]), rr = &#x22;&#x22;, cols = [], C;
 	var cmds = new Array((r.e.r-r.s.r+1)*(r.e.c-r.s.c+1));
 	var i = 0;
+	var dense = Array.isArray(sheet);
 	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
 	for(var R = r.s.r; R &#x3c;= r.e.r; ++R) {
 		rr = encode_row(R);
 		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
 			y = cols[C] + rr;
-			x = sheet[y];
+			x = dense ? (sheet[R]||[])[C] : sheet[y];
 			val = &#x22;&#x22;;
 			if(x === undefined) continue;
 			else if(x.F != null) {
@@ -2000,7 +2312,23 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	cmds.length = i;
 	return cmds;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+function to_formulae(w) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.get_formulae) XL = XLSX;
+	var result = {};
+	workbook.SheetNames.forEach(function(sheetName) {
+		var f = XL.utils.<span class="apidocCodeKeywordSpan">get_formulae</span>(workbook.Sheets[sheetName]);
+		if(f.length &#x3e; 0) result[sheetName] = f;
+	});
+	return result;
+}
+
+function to_json(w, raw) {
+	var XL = w[0], workbook = w[1];
+...</pre></li>
     </ul>
 
 
@@ -2013,43 +2341,43 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function sheet_to_csv(sheet, opts) {
-	var out = &#x22;&#x22;, txt = &#x22;&#x22;, qreg = /&#x22;/g;
+	var out = &#x22;&#x22;;
 	var o = opts == null ? {} : opts;
 	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return &#x22;&#x22;;
 	var r = safe_decode_range(sheet[&#x22;!ref&#x22;]);
 	var FS = o.FS !== undefined ? o.FS : &#x22;,&#x22;, fs = FS.charCodeAt(0);
 	var RS = o.RS !== undefined ? o.RS : &#x22;\n&#x22;, rs = RS.charCodeAt(0);
 	var endregex = new RegExp((FS==&#x22;|&#x22; ? &#x22;\\|&#x22; : FS)+&#x22;+$&#x22;);
-	var row = &#x22;&#x22;, rr = &#x22;&#x22;, cols = [];
-	var i = 0, cc = 0, val;
-	var R = 0, C = 0;
-	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
-	for(R = r.s.r; R &#x3c;= r.e.r; ++R) {
-		var isempty = true;
-		row = &#x22;&#x22;;
-		rr = encode_row(R);
-		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
-			val = sheet[cols[C] + rr];
-			if(val == null) txt = &#x22;&#x22;;
-			else if(val.v != null) {
-				isempty = false;
-				txt = &#x27;&#x27;+format_cell(val, null, o);
-				for(i = 0, cc = 0; i !== txt.length; ++i) if((cc = txt.charCodeAt(i)) === fs || cc === rs || cc === 34) {
-					txt = &#x22;\&#x22;&#x22; + txt.replace(qreg, &#x27;&#x22;&#x22;&#x27;) + &#x22;\&#x22;&#x22;; break; }
-			} else if(val.f != null &#x26;&#x26; !val.F) {
-				isempty = false;
-				txt = &#x27;=&#x27; + val.f; if(txt.indexOf(&#x22;,&#x22;) &#x3e;= 0) txt = &#x27;&#x22;&#x27; + txt.replace(qreg, &#x27;&#x22;&#x22;&#x27;) + &#x27;&#x22;&#x27;;
-			} else txt = &#x22;&#x22;;
-			<span class="apidocCodeCommentSpan">/* NOTE: Excel CSV does not support array formulae */
-</span>			row += (C === r.s.c ? &#x22;&#x22; : FS) + txt;
-		}
-		if(o.blankrows === false &#x26;&#x26; isempty) continue;
+	var row = &#x22;&#x22;, cols = [];
+	o.dense = Array.isArray(sheet);
+	for(var C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
+	for(var R = r.s.r; R &#x3c;= r.e.r; ++R) {
+		row = make_csv_row(sheet, r, R, cols, fs, rs, FS, o);
+		if(row == null) { continue; }
 		if(o.strip) row = row.replace(endregex,&#x22;&#x22;);
 		out += row + RS;
 	}
+	delete o.dense;
 	return out;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+function to_dsv(w, FS, RS) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.make_csv) XL = XLSX;
+	var result = {};
+	workbook.SheetNames.forEach(function(sheetName) {
+		var csv = XL.utils.<span class="apidocCodeKeywordSpan">make_csv</span>(workbook.Sheets[sheetName], {FS:FS||&#x22;,&#x22;,RS:RS
+||&#x22;\n&#x22;});
+		if(csv.length &#x3e; 0) result[sheetName] = csv;
+	});
+	return result;
+}
+
+function get_cols(sheet, XL) {
+	var val, r, hdr, R, C, _XL = XL || XLS;
+...</pre></li>
     </ul>
 
 
@@ -2067,12 +2395,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	var r = safe_decode_range(sheet[&#x27;!ref&#x27;]), rr = &#x22;&#x22;, cols = [], C;
 	var cmds = new Array((r.e.r-r.s.r+1)*(r.e.c-r.s.c+1));
 	var i = 0;
+	var dense = Array.isArray(sheet);
 	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
 	for(var R = r.s.r; R &#x3c;= r.e.r; ++R) {
 		rr = encode_row(R);
 		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
 			y = cols[C] + rr;
-			x = sheet[y];
+			x = dense ? (sheet[R]||[])[C] : sheet[y];
 			val = &#x22;&#x22;;
 			if(x === undefined) continue;
 			else if(x.F != null) {
@@ -2108,12 +2437,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function sheet_to_json(sheet, opts){
-	var val, row, range, header = 0, offset = 1, r, hdr = [], isempty, R, C, v, vv;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	var val = {t:&#x27;n&#x27;,v:0}, header = 0, offset = 1, hdr = [], isempty = true, v=0, vv=&#x22;&#x22;;
+	var r = {s:{r:0,c:0},e:{r:0,c:0}};
 	var o = opts != null ? opts : {};
 	var raw = o.raw;
 	var defval = o.defval;
-	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
-	range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
+	var range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
 	if(o.header === 1) header = 1;
 	else if(o.header === &#x22;A&#x22;) header = 2;
 	else if(Array.isArray(o.header)) header = 3;
@@ -2126,10 +2456,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	var rr = encode_row(r.s.r);
 	var cols = new Array(r.e.c-r.s.c+1);
 	var out = new Array(r.e.r-r.s.r-offset+1);
-	var outi = 0;
+	var outi = 0, counter = 0;
+	var dense = Array.isArray(sheet);
+	var R = r.s.r, C = 0, CC = 0;
+	if(!sheet[R]) sheet[R] = [];
 	for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
 		cols[C] = encode_col(C);
-		val = sheet[cols[C] + rr];
+		val = dense ? sheet[R][C] : sheet[cols[C] + rr];
 		switch(header) {
 			case 1: hdr[C] = C; break;
 			case 2: hdr[C] = cols[C]; break;
@@ -2137,12 +2470,12 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 			default:
 				if(val == null) continue;
 				vv = v = format_cell(val, null, o);
-				var counter = 0;
-				for(var CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
+				counter = 0;
+				for(CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
 				hdr[C] = vv;
 		}
 	}
-
+	var row = (header === 1) ? [] : {};
 	for (R = r.s.r + offset; R &#x3c;= r.e.r; ++R) {
 		rr = encode_row(R);
 		isempty = true;
@@ -2153,8 +2486,8 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
  = R; }
 			else row.__rowNum__ = R;
 		}
-		for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
-			val = sheet[cols[C] + rr];
+		if(!dense || sheet[R]) for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			val = dense ? sheet[R][C] : sheet[cols[C] + rr];
 			if(val === undefined || val.t === undefined) {
 				if(defval === undefined) continue;
 				if(hdr[C] != null) { row[hdr[C]] = defval; isempty = false; }
@@ -2196,40 +2529,23 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function sheet_to_csv(sheet, opts) {
-	var out = &#x22;&#x22;, txt = &#x22;&#x22;, qreg = /&#x22;/g;
+	var out = &#x22;&#x22;;
 	var o = opts == null ? {} : opts;
 	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return &#x22;&#x22;;
 	var r = safe_decode_range(sheet[&#x22;!ref&#x22;]);
 	var FS = o.FS !== undefined ? o.FS : &#x22;,&#x22;, fs = FS.charCodeAt(0);
 	var RS = o.RS !== undefined ? o.RS : &#x22;\n&#x22;, rs = RS.charCodeAt(0);
 	var endregex = new RegExp((FS==&#x22;|&#x22; ? &#x22;\\|&#x22; : FS)+&#x22;+$&#x22;);
-	var row = &#x22;&#x22;, rr = &#x22;&#x22;, cols = [];
-	var i = 0, cc = 0, val;
-	var R = 0, C = 0;
-	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
-	for(R = r.s.r; R &#x3c;= r.e.r; ++R) {
-		var isempty = true;
-		row = &#x22;&#x22;;
-		rr = encode_row(R);
-		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
-			val = sheet[cols[C] + rr];
-			if(val == null) txt = &#x22;&#x22;;
-			else if(val.v != null) {
-				isempty = false;
-				txt = &#x27;&#x27;+format_cell(val, null, o);
-				for(i = 0, cc = 0; i !== txt.length; ++i) if((cc = txt.charCodeAt(i)) === fs || cc === rs || cc === 34) {
-					txt = &#x22;\&#x22;&#x22; + txt.replace(qreg, &#x27;&#x22;&#x22;&#x27;) + &#x22;\&#x22;&#x22;; break; }
-			} else if(val.f != null &#x26;&#x26; !val.F) {
-				isempty = false;
-				txt = &#x27;=&#x27; + val.f; if(txt.indexOf(&#x22;,&#x22;) &#x3e;= 0) txt = &#x27;&#x22;&#x27; + txt.replace(qreg, &#x27;&#x22;&#x22;&#x27;) + &#x27;&#x22;&#x27;;
-			} else txt = &#x22;&#x22;;
-			<span class="apidocCodeCommentSpan">/* NOTE: Excel CSV does not support array formulae */
-</span>			row += (C === r.s.c ? &#x22;&#x22; : FS) + txt;
-		}
-		if(o.blankrows === false &#x26;&#x26; isempty) continue;
+	var row = &#x22;&#x22;, cols = [];
+	o.dense = Array.isArray(sheet);
+	for(var C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
+	for(var R = r.s.r; R &#x3c;= r.e.r; ++R) {
+		row = make_csv_row(sheet, r, R, cols, fs, rs, FS, o);
+		if(row == null) { continue; }
 		if(o.strip) row = row.replace(endregex,&#x22;&#x22;);
 		out += row + RS;
 	}
+	delete o.dense;
 	return out;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2250,12 +2566,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	var r = safe_decode_range(sheet[&#x27;!ref&#x27;]), rr = &#x22;&#x22;, cols = [], C;
 	var cmds = new Array((r.e.r-r.s.r+1)*(r.e.c-r.s.c+1));
 	var i = 0;
+	var dense = Array.isArray(sheet);
 	for(C = r.s.c; C &#x3c;= r.e.c; ++C) cols[C] = encode_col(C);
 	for(var R = r.s.r; R &#x3c;= r.e.r; ++R) {
 		rr = encode_row(R);
 		for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
 			y = cols[C] + rr;
-			x = sheet[y];
+			x = dense ? (sheet[R]||[])[C] : sheet[y];
 			val = &#x22;&#x22;;
 			if(x === undefined) continue;
 			else if(x.F != null) {
@@ -2291,12 +2608,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function sheet_to_json(sheet, opts){
-	var val, row, range, header = 0, offset = 1, r, hdr = [], isempty, R, C, v, vv;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	var val = {t:&#x27;n&#x27;,v:0}, header = 0, offset = 1, hdr = [], isempty = true, v=0, vv=&#x22;&#x22;;
+	var r = {s:{r:0,c:0},e:{r:0,c:0}};
 	var o = opts != null ? opts : {};
 	var raw = o.raw;
 	var defval = o.defval;
-	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
-	range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
+	var range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
 	if(o.header === 1) header = 1;
 	else if(o.header === &#x22;A&#x22;) header = 2;
 	else if(Array.isArray(o.header)) header = 3;
@@ -2309,10 +2627,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	var rr = encode_row(r.s.r);
 	var cols = new Array(r.e.c-r.s.c+1);
 	var out = new Array(r.e.r-r.s.r-offset+1);
-	var outi = 0;
+	var outi = 0, counter = 0;
+	var dense = Array.isArray(sheet);
+	var R = r.s.r, C = 0, CC = 0;
+	if(!sheet[R]) sheet[R] = [];
 	for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
 		cols[C] = encode_col(C);
-		val = sheet[cols[C] + rr];
+		val = dense ? sheet[R][C] : sheet[cols[C] + rr];
 		switch(header) {
 			case 1: hdr[C] = C; break;
 			case 2: hdr[C] = cols[C]; break;
@@ -2320,12 +2641,12 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 			default:
 				if(val == null) continue;
 				vv = v = format_cell(val, null, o);
-				var counter = 0;
-				for(var CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
+				counter = 0;
+				for(CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
 				hdr[C] = vv;
 		}
 	}
-
+	var row = (header === 1) ? [] : {};
 	for (R = r.s.r + offset; R &#x3c;= r.e.r; ++R) {
 		rr = encode_row(R);
 		isempty = true;
@@ -2336,8 +2657,8 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
  = R; }
 			else row.__rowNum__ = R;
 		}
-		for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
-			val = sheet[cols[C] + rr];
+		if(!dense || sheet[R]) for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			val = dense ? sheet[R][C] : sheet[cols[C] + rr];
 			if(val === undefined || val.t === undefined) {
 				if(defval === undefined) continue;
 				if(hdr[C] != null) { row[hdr[C]] = defval; isempty = false; }
@@ -2379,12 +2700,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function sheet_to_json(sheet, opts){
-	var val, row, range, header = 0, offset = 1, r, hdr = [], isempty, R, C, v, vv;
+	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
+	var val = {t:&#x27;n&#x27;,v:0}, header = 0, offset = 1, hdr = [], isempty = true, v=0, vv=&#x22;&#x22;;
+	var r = {s:{r:0,c:0},e:{r:0,c:0}};
 	var o = opts != null ? opts : {};
 	var raw = o.raw;
 	var defval = o.defval;
-	if(sheet == null || sheet[&#x22;!ref&#x22;] == null) return [];
-	range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
+	var range = o.range != null ? o.range : sheet[&#x22;!ref&#x22;];
 	if(o.header === 1) header = 1;
 	else if(o.header === &#x22;A&#x22;) header = 2;
 	else if(Array.isArray(o.header)) header = 3;
@@ -2397,10 +2719,13 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	var rr = encode_row(r.s.r);
 	var cols = new Array(r.e.c-r.s.c+1);
 	var out = new Array(r.e.r-r.s.r-offset+1);
-	var outi = 0;
+	var outi = 0, counter = 0;
+	var dense = Array.isArray(sheet);
+	var R = r.s.r, C = 0, CC = 0;
+	if(!sheet[R]) sheet[R] = [];
 	for(C = r.s.c; C &#x3c;= r.e.c; ++C) {
 		cols[C] = encode_col(C);
-		val = sheet[cols[C] + rr];
+		val = dense ? sheet[R][C] : sheet[cols[C] + rr];
 		switch(header) {
 			case 1: hdr[C] = C; break;
 			case 2: hdr[C] = cols[C]; break;
@@ -2408,12 +2733,12 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 			default:
 				if(val == null) continue;
 				vv = v = format_cell(val, null, o);
-				var counter = 0;
-				for(var CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
+				counter = 0;
+				for(CC = 0; CC &#x3c; hdr.length; ++CC) if(hdr[CC] == vv) vv = v + &#x22;_&#x22; + (++counter);
 				hdr[C] = vv;
 		}
 	}
-
+	var row = (header === 1) ? [] : {};
 	for (R = r.s.r + offset; R &#x3c;= r.e.r; ++R) {
 		rr = encode_row(R);
 		isempty = true;
@@ -2424,8 +2749,8 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
  = R; }
 			else row.__rowNum__ = R;
 		}
-		for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
-			val = sheet[cols[C] + rr];
+		if(!dense || sheet[R]) for (C = r.s.c; C &#x3c;= r.e.c; ++C) {
+			val = dense ? sheet[R][C] : sheet[cols[C] + rr];
 			if(val === undefined || val.t === undefined) {
 				if(defval === undefined) continue;
 				if(hdr[C] != null) { row[hdr[C]] = defval; isempty = false; }
@@ -2454,7 +2779,24 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 	out.length = outi;
 	return out;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+function to_json(w, raw) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.sheet_to_row_object_array) XL = XLSX;
+	var result = {};
+	workbook.SheetNames.forEach(function(sheetName) {
+		var roa = XL.utils.<span class="apidocCodeKeywordSpan">sheet_to_row_object_array</span>(workbook.Sheets[sheetName], typeof raw
+ == &#x22;object&#x22; ? raw : {raw:raw});
+		if(roa.length &#x3e; 0) result[sheetName] = roa;
+	});
+	return result;
+}
+
+function to_dsv(w, FS, RS) {
+	var XL = w[0], workbook = w[1];
+...</pre></li>
     </ul>
 
 
@@ -2490,12 +2832,14 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
     <h2>
         <a href="#apidoc.element.j.XLSX.utils.table_to_sheet" id="apidoc.element.j.XLSX.utils.table_to_sheet">
         function <span class="apidocSignatureSpan">j.XLSX.utils.</span>table_to_sheet
-        <span class="apidocSignatureSpan">(table, opts)</span>
+        <span class="apidocSignatureSpan">(table, _opts)</span>
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">function parse_dom_table(table, opts) {
-	var ws = ({});
+    <li>description and source-code<pre class="apidocCodePre">function parse_dom_table(table, _opts) {
+	var opts = _opts || {};
+	if(DENSE != null) opts.dense = DENSE;
+	var ws = opts.dense ? ([]) : ({});
 	var rows = table.getElementsByTagName(&#x27;tr&#x27;);
 	var range = {s:{r:0,c:0},e:{r:rows.length - 1,c:0}};
 	var merges = [], midx = 0;
@@ -2511,10 +2855,12 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 			}
 			<span class="apidocCodeCommentSpan">/* TODO: figure out how to extract nonstandard mso- style */
 </span>			CS = +elt.getAttribute(&#x22;colspan&#x22;) || 1;
-			if((RS = +elt.getAttribute(&#x22;rowspan&#x22;))&#x3e;0) merges.push({s:{r:R,c:C},e:{r:R + RS - 1, c:C + CS - 1}});
+			if((RS = +elt.getAttribute(&#x22;rowspan&#x22;))&#x3e;0 || CS&#x3e;1) merges.push({s:{r:R,c:C},e:{r:R + (RS||1) - 1, c:C + CS - 1}});
 			var o = {t:&#x27;s&#x27;, v:v};
 			if(v != null &#x26;&#x26; v.length &#x26;&#x26; !isNaN(Number(v))) o = {t:&#x27;n&#x27;, v:Number(v)};
-			ws[encode_cell({c:C, r:R})] = o;
+			if(opts.dense) { if(!ws[R]) ws[R] = []; ws[R][C] = o; }
+			else ws[encode_cell({c:C, r:R})] = o;
+			if(range.e.c &#x3c; C) range.e.c = C;
 			C += CS;
 		}
 	}
@@ -2524,6 +2870,84 @@ return cs == ce ? cs : cs + &#x22;:&#x22; + ce;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.j.j" id="apidoc.module.j.j">module j.j</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.j.j.read" id="apidoc.element.j.j.read">
+        function <span class="apidocSignatureSpan">j.j.</span>read
+        <span class="apidocSignatureSpan">(data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">read = function (data, options) {
+	if(is_xlsx(data)) return [XLSX, XLSX.read(data, options)];
+	else return [HARB, HARB.read(data.toString(), options)];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var readFileSync = function(filename, options) {
+	var f = fs.readFileSync(filename);
+	if(is_xlsx(f)) return [XLSX, XLSX.readFile(filename, options)];
+	else return [HARB, HARB.readFile(filename, options)];
+};
+
+var read = function(data, options) {
+	if(is_xlsx(data)) return [XLSX, XLSX.<span class="apidocCodeKeywordSpan">read</span>(data, options)];
+	else return [HARB, HARB.read(data.toString(), options)];
+};
+
+function to_formulae(w) {
+	var XL = w[0], workbook = w[1];
+	if(!XL.utils.get_formulae) XL = XLSX;
+	var result = {};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.j.j.readFile" id="apidoc.element.j.j.readFile">
+        function <span class="apidocSignatureSpan">j.j.</span>readFile
+        <span class="apidocSignatureSpan">(filename, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readFile = function (filename, options) {
+	var f = fs.readFileSync(filename);
+	if(is_xlsx(f)) return [XLSX, XLSX.readFile(filename, options)];
+	else return [HARB, HARB.readFile(filename, options)];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Node Library
+
+```js
+var J = require(&#x27;j&#x27;);
+```
+
+`J.<span class="apidocCodeKeywordSpan">readFile</span>(filename)` opens the file specified by filename and returns an array
+whose first object is the parsing object (XLS or XLSX) and whose second object
+is the parsed file.
+
+`J.utils` has various helpers that expect an array like those from readFile:
+
+| Format                                                   |   util helper     |
+|:---------------------------------------------------------|:------------------|
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
 
 
 </div>
